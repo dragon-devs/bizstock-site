@@ -180,7 +180,7 @@ const HeroSection = () => {
             transition={{duration: 0.3}}
           >
             <Image
-              src="/BizStock-reports.png"
+              src="/bizstock-reports.png"
               alt="BizStock Dashboard"
               className="w-full object-cover"
               width={2000}
