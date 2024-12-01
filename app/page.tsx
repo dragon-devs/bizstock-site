@@ -500,7 +500,7 @@ const CtaSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           variants={staggerChildren}
         >
-          <Link className="w-full sm:w-fit" href="https://app.bizstock.app">
+          <Link className="w-full sm:w-fit" href="https://app.bizstock.net">
             <motion.button
               className="px-6 py-2 bg-white text-blue-600 rounded-lg"
               variants={buttonVariants}
