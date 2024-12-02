@@ -1,7 +1,7 @@
 'use client';
 import React, {useEffect, useState} from 'react';
-import {motion} from 'framer-motion';
-import {Building2, CheckCircle2, CloudCog, Database, LineChart, Settings2, Shield} from 'lucide-react';
+import {AnimatePresence, motion} from 'framer-motion';
+import {Building2, CheckCircle2, ChevronDown, CloudCog, Database, LineChart, Settings2, Shield} from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ const staggerChildren = {
 };
 
 
-const SiteHeader = () => {
+export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,8 @@ const SiteHeader = () => {
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
         <div className="flex items-center justify-between">
-          <div
+          <Link
+            href="/"
             className="flex items-center space-x-2"
           >
             <Image
@@ -62,10 +63,11 @@ const SiteHeader = () => {
               width={100}
               height={100}
             />
-            <span className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
+            <span
+              className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
               BizStock
             </span>
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center space-x-8">
             {['Features', 'Pricing', 'FAQ'].map((item, index) => (
               <motion.a
@@ -250,7 +252,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow"
+              className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
               variants={fadeInUp}
               whileHover={{
                 y: -5,
@@ -342,7 +344,7 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`relative p-8 rounded-xl ${
+              className={`relative p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow ${
                 plan.popular ? 'bg-blue-600 text-white' : 'bg-white border border-gray-200'
               }`}
               variants={fadeInUp}
@@ -407,6 +409,8 @@ const PricingSection = () => {
 
 
 const FaqSection = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const faqs = [
     {
       question: "How easy is it to migrate from my current system?",
@@ -422,36 +426,112 @@ const FaqSection = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const contentVariants = {
+    hidden: { height: 0, opacity: 0 },
+    visible: {
+      height: "auto",
+      opacity: 1,
+      transition: {
+        height: {
+          duration: 0.3
+        },
+        opacity: {
+          duration: 0.25,
+          delay: 0.15
+        }
+      }
+    }
+  };
+
   return (
     <motion.section
-      id="faq"
-      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80"
-      initial="initial"
-      whileInView="animate"
-      viewport={{once: true, margin: "-100px"}}
+      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
-      <div className="container max-w-[72rem] mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-3xl">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
-          variants={fadeInUp}
+          className="text-center mb-16"
+          variants={itemVariants}
         >
-          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Frequently Asked Questions</h2>
-          <p className="text-gray-600">Find answers to common questions about BizStock</p>
+          <h2 className="text-4xl font-bold mb-4 tracking-tighter">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-gray-600">
+            Find answers to common questions about BizStock
+          </p>
         </motion.div>
+
         <motion.div
-          className="max-w-3xl mx-auto space-y-6"
-          variants={staggerChildren}
+          className="space-y-4"
+          variants={containerVariants}
         >
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-sm hover:shadow-xl transition-shadow"
-              variants={fadeInUp}
-              whileHover={{scale: 1.02}}
-              whileTap={{scale: 0.98}}
+              variants={itemVariants}
+              className="bg-white rounded-lg shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
             >
-              <h3 className="text-xl font-semibold mb-2">{faq.question}</h3>
-              <p className="text-gray-600">{faq.answer}</p>
+              <motion.button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className="w-full text-left px-6 py-4 flex justify-between items-center"
+                whileHover={{ scale: 1.005 }}
+                whileTap={{ scale: 0.995 }}
+              >
+                <h3 className="text-xl font-semibold pr-4">{faq.question}</h3>
+                <motion.div
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="flex-shrink-0" />
+                </motion.div>
+              </motion.button>
+
+              <AnimatePresence initial={false}>
+                {openIndex === index && (
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={contentVariants}
+                    className="overflow-hidden"
+                  >
+                    <motion.div
+                      className="px-6 pb-4 text-gray-600"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </motion.div>
@@ -509,7 +589,8 @@ const CtaSection = () => {
               Start <span className="font-bold">30-Days</span> Free Trial
             </motion.button>
           </Link>
-          <Link className="w-full sm:w-fit" href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
+          <Link className="w-full sm:w-fit"
+                href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
             <motion.button
               className="px-6 py-2 border border-white text-white rounded-lg"
               variants={buttonVariants}
@@ -522,7 +603,7 @@ const CtaSection = () => {
         </motion.div>
       </div>
     </motion.section>
-);
+  );
 };
 
 const SiteFooter = () => {
@@ -545,9 +626,9 @@ const SiteFooter = () => {
           animate="animate"
         >
           <motion.div variants={fadeInUp}>
-            <motion.div
+            <Link
+              href="/"
               className="flex items-center -ml-2 mb-4"
-              whileHover={{scale: 1.05}}
             >
               <Image
                 src="/biz-stock-logo.svg"
@@ -557,7 +638,7 @@ const SiteFooter = () => {
                 height={100}
               />
               <div className="text-base sm:text-2xl -ml-4 font-bold text-white tracking-tighter">BizStock</div>
-            </motion.div>
+            </Link>
             <p className="text-sm">Modern inventory management for modern business.</p>
           </motion.div>
 
@@ -628,8 +709,25 @@ const SiteFooter = () => {
               variants={fadeInUp}
               initial="initial"
               animate="animate"
+              className="flex gap-2 flex-col md:flex-row justify-center items-center leading-none"
             >
-              &copy; 2024 BizStock. All rights reserved.
+              <span>
+                &copy; 2024 BizStock. All rights reserved.
+              </span>
+              <span className="flex gap-1 items-center">
+                <span className="text-muted-foreground">developed by</span>
+                <Link
+                  className="flex items-center hover:underline hover:text-blue-500 transition-all font-semibold"
+                  href="https://dragon-devs.vercel.app"
+                >
+                  <Image
+                    src='/dragondevs-logo.png'
+                    alt='dragon'
+                    width={100}
+                    height={100}
+                    className="w-4 h-4 rounded-full mr-1"/>
+                    <span className="drop-shadow-[0_5px_10px_rgba(59,130,246,1)]">dragondevs</span>                </Link>
+              </span>
             </motion.p>
             <motion.div
               className="flex space-x-6 mt-4 md:mt-0"
@@ -637,16 +735,18 @@ const SiteFooter = () => {
               initial="initial"
               animate="animate"
             >
-              {['Privacy Policy', 'Terms of Service', 'Cookies'].map((text) => (
-                <motion.a
-                  key={text}
-                  href="#"
-                  variants={linkVariants}
-                  whileHover="hover"
+              {[
+                { text: 'Privacy Policy', href: '/privacy-policy' },
+                { text: 'Terms & Conditions', href: '/terms-and-conditions' },
+                { text: 'Cookies', href: '/cookies' },
+              ].map(({ text, href }) => (
+                <Link
+                  key={href}
+                  href={href}
                   className="hover:text-white transition-colors"
                 >
                   {text}
-                </motion.a>
+                </Link>
               ))}
             </motion.div>
           </div>
@@ -655,13 +755,13 @@ const SiteFooter = () => {
           className="absolute overflow-hidden -z-10 transition-all -top-5 sm:-right-20 right-0 w-72 h-72 bg-rose-500/20 rounded-full blur-3xl"/>
       </div>
     </motion.footer>
-  );
+  )
+    ;
 };
 
 export default function Home() {
   return (
     <div className="bg-gradient-to-l from-blue-500/40 to-white/0">
-      <SiteHeader/>
 
       <div className="relative flex  max-w-[72rem] mx-auto flex-col">
         <main className="flex-1 ">
