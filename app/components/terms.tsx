@@ -30,11 +30,11 @@ const itemVariants = {
 const PolicySection = ({ title, icon: Icon, children }: any) => (
   <motion.div
     variants={itemVariants}
-    className="mb-8 bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+    className="mb-8 bg-white rounded-xl p-6 transition-shadow"
   >
     <div className="flex items-center gap-3 mb-4">
       <Icon className="w-6 h-6 text-blue-500" />
-      <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+      <h3 className="text-xl font-semibold text-gray-800 tracking-tight">{title}</h3>
     </div>
     <div className="text-gray-600 space-y-3">
       {children}
@@ -55,10 +55,10 @@ export const TermsAndConditions = () => {
         className="text-center mb-12"
         variants={itemVariants}
       >
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Terms and Conditions
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 text-lg font-semibold tracking-tight">
           Last updated: December 2, 2024
         </p>
       </motion.div>
@@ -139,7 +139,7 @@ export const PrivacyPolicy = () => {
         className="text-center mb-12"
         variants={itemVariants}
       >
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Privacy Policy
         </h1>
         <p className="text-gray-600">
@@ -152,7 +152,7 @@ export const PrivacyPolicy = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="bg-white rounded-xl shadow-md overflow-hidden"
+            className="bg-white rounded-xl overflow-hidden"
           >
             <button
               onClick={() => toggleSection(index)}
@@ -202,10 +202,10 @@ export const CookiePolicy = () => {
         className="text-center mb-12"
         variants={itemVariants}
       >
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent">
           Cookie Policy
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 ">
           Understanding how we use cookies to improve your experience
         </p>
       </motion.div>
@@ -213,10 +213,10 @@ export const CookiePolicy = () => {
       <div className="grid md:grid-cols-2 gap-6">
         <motion.div
           variants={itemVariants}
-          className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          className="bg-white p-6 rounded-xl transition-shadow"
         >
           <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <Cookie className="w-5 h-5 text-blue-500" />
+            <Cookie className="w-5 h-5 text-blue-500 tracking-tight" />
             Essential Cookies
           </h3>
           <p className="text-gray-600">
@@ -229,10 +229,10 @@ export const CookiePolicy = () => {
 
         <motion.div
           variants={itemVariants}
-          className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          className="bg-white p-6 rounded-xl transition-shadow"
         >
           <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <ExternalLink className="w-5 h-5 text-purple-500" />
+            <ExternalLink className="w-5 h-5 text-purple-500 tracking-tight" />
             Third-Party Cookies
           </h3>
           <p className="text-gray-600">
@@ -248,7 +248,7 @@ export const CookiePolicy = () => {
         variants={itemVariants}
         className="mt-8 bg-blue-50 p-6 rounded-xl"
       >
-        <h3 className="text-xl font-semibold mb-4">Cookie Management</h3>
+        <h3 className="text-xl font-semibold mb-4 tracking-tight">Cookie Management</h3>
         <p className="text-gray-700 mb-4">
           You can manage your cookie preferences through your browser settings.
           However, please note that disabling certain cookies may affect the functionality of BizStock.

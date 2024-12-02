@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "BizStock",
+  title: "BizStock - Inventory Management System",
   description: "An Inventory management system for all size of businesses.",
 };
 

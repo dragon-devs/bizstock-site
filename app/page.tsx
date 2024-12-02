@@ -502,7 +502,7 @@ const FaqSection = () => {
                 whileHover={{ scale: 1.005 }}
                 whileTap={{ scale: 0.995 }}
               >
-                <h3 className="text-xl font-semibold pr-4">{faq.question}</h3>
+                <h3 className="sm:text-lg text-base font-semibold pr-4">{faq.question}</h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -581,7 +581,7 @@ const CtaSection = () => {
         >
           <Link className="w-full sm:w-fit" href="https://app.bizstock.net">
             <motion.button
-              className="px-6 py-2 bg-white text-blue-600 rounded-lg"
+              className="px-6 w-full py-2 bg-white text-blue-600 rounded-lg"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -592,7 +592,7 @@ const CtaSection = () => {
           <Link className="w-full sm:w-fit"
                 href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
             <motion.button
-              className="px-6 py-2 border border-white text-white rounded-lg"
+              className="px-6 w-full py-2 border border-white text-white rounded-lg"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -642,54 +642,46 @@ const SiteFooter = () => {
             <p className="text-sm">Modern inventory management for modern business.</p>
           </motion.div>
 
-          {['Product', 'Resources'].map((section, index) => (
+          {['Details', 'Resources'].map((section, index) => (
             <motion.div key={section} variants={fadeInUp}>
               <h3 className="text-white font-semibold mb-4">{section}</h3>
               <ul className="space-y-2">
                 {index === 0 ? (
                   <>
+                    {/*<motion.li variants={fadeInUp}>*/}
+                    {/*  <Link*/}
+                    {/*    href="https://dragon-devs.vercel.app/"*/}
+                    {/*    className="block"*/}
+                    {/*  >*/}
+                    {/*    Careers*/}
+                    {/*  </Link>*/}
+                    {/*</motion.li>*/}
                     <motion.li variants={fadeInUp}>
-                      <motion.a
-                        href="#"
-                        className="block"
-                        variants={linkVariants}
-                        whileHover="hover"
+                      <Link
+                        href="https://dragon-devs.vercel.app"
+                        className="block hover:text-white transition-all"
                       >
-                        Careers
-                      </motion.a>
-                    </motion.li>
-                    <motion.li variants={fadeInUp}>
-                      <motion.a
-                        href="#"
-                        className="block"
-                        variants={linkVariants}
-                        whileHover="hover"
-                      >
-                        Contact
-                      </motion.a>
+                        Contact Us
+                      </Link>
                     </motion.li>
                   </>
                 ) : (
                   <>
                     <motion.li variants={fadeInUp}>
-                      <motion.a
+                      <Link
                         href="#"
-                        className="block"
-                        variants={linkVariants}
-                        whileHover="hover"
+                        className="block hover:text-white transition-all"
                       >
                         Documentation
-                      </motion.a>
+                      </Link>
                     </motion.li>
                     <motion.li variants={fadeInUp}>
-                      <motion.a
+                      <Link
                         href="#"
-                        className="block"
-                        variants={linkVariants}
-                        whileHover="hover"
+                        className="block hover:text-white transition-all"
                       >
                         Support
-                      </motion.a>
+                      </Link>
                     </motion.li>
                   </>
                 )}
@@ -717,7 +709,7 @@ const SiteFooter = () => {
               <span className="flex gap-1 items-center">
                 <span className="text-muted-foreground">developed by</span>
                 <Link
-                  className="flex items-center hover:underline hover:text-blue-500 transition-all font-semibold"
+                  className="flex items-center hover:underline hover:text-white transition-all font-semibold"
                   href="https://dragon-devs.vercel.app"
                 >
                   <Image
@@ -751,8 +743,7 @@ const SiteFooter = () => {
             </motion.div>
           </div>
         </motion.div>
-        <div
-          className="absolute overflow-hidden -z-10 transition-all -top-5 sm:-right-20 right-0 w-72 h-72 bg-rose-500/20 rounded-full blur-3xl"/>
+
       </div>
     </motion.footer>
   )
@@ -763,12 +754,12 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-l from-blue-500/40 to-white/0">
 
-      <div className="relative flex  max-w-[72rem] mx-auto flex-col">
+      <div className="flex max-w-[72rem] mx-auto flex-col">
         <main className="flex-1 ">
           <div
-            className="absolute overflow-hidden -z-10 transition-all -top-5 sm:-left-20 right-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"/>
+            className="absolute -z-10 transition-all -top-5 sm:-left-20 right-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"/>
           <div
-            className="absolute overflow-hidden -z-10 transition-all -top-5 sm:-right-20 right-0 w-72 h-72 bg-rose-500/20 rounded-full blur-3xl"/>
+            className="absolute -z-10 transition-all -top-5 right-0 w-72 h-72 bg-rose-500/20 rounded-full blur-3xl"/>
           <HeroSection/>
           <FeaturesSection/>
           <PricingSection/>
