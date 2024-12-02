@@ -52,10 +52,8 @@ const SiteHeader = () => {
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
         <div className="flex items-center justify-between">
-          <motion.div
+          <div
             className="flex items-center space-x-2"
-            whileHover={{scale: 1.05}}
-            whileTap={{scale: 0.95}}
           >
             <Image
               src="/biz-stock-logo.svg"
@@ -64,10 +62,10 @@ const SiteHeader = () => {
               width={100}
               height={100}
             />
-            <span className="text-base sm:text-2xl font-bold bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
+            <span className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
               BizStock
             </span>
-          </motion.div>
+          </div>
           <nav className="hidden md:flex items-center space-x-8">
             {['Features', 'Pricing', 'FAQ'].map((item, index) => (
               <motion.a
@@ -89,7 +87,7 @@ const SiteHeader = () => {
               <motion.button
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
-                className=" px-4 py-2 text-blue-600 hover:text-blue-700 transition-colors"
+                className=" px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
               >
                 Login
               </motion.button>
@@ -122,7 +120,7 @@ const HeroSection = () => {
           transition={{duration: 0.6}}
         >
           <motion.h1
-            className="text-5xl md:text-6xl pb-2 leading-none font-bold bg-gradient-to-r from-blue-600 via-blue-800 to-red-600 bg-clip-text text-transparent"
+            className="text-5xl md:text-6xl pb-2 leading-none font-black tracking-tighter bg-gradient-to-r from-blue-600 via-blue-800 to-red-600 bg-clip-text text-transparent"
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.8, delay: 0.2}}
@@ -238,7 +236,7 @@ const FeaturesSection = () => {
           viewport={{once: true}}
           transition={{duration: 0.6}}
         >
-          <h2 className="text-4xl font-bold mb-4">Powerful Features for Modern Business</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Powerful Features for Modern Business</h2>
           <p className="text-gray-600">Everything you need to streamline your inventory management and boost
             efficiency.</p>
         </motion.div>
@@ -268,7 +266,7 @@ const FeaturesSection = () => {
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 tracking-tighter">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
@@ -282,24 +280,23 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Starter",
-      price: "49",
+      price: "4900",
       description: "Perfect for small businesses",
       features: [
         "Up to 1,000 SKUs",
-        "2 User Accounts",
+        "1 User Accounts",
         "Basic Analytics",
         "Email Support",
         "Cloud Backup",
-        "Mobile App Access"
       ]
     },
     {
       name: "Professional",
-      price: "99",
+      price: "9900",
       description: "Ideal for growing companies",
       features: [
-        "Up to 10,000 SKUs",
-        "10 User Accounts",
+        "Up to 5,000 SKUs",
+        "5 User Accounts",
         "Advanced Analytics",
         "Priority Support",
         "API Access",
@@ -309,7 +306,7 @@ const PricingSection = () => {
     },
     {
       name: "Enterprise",
-      price: "249",
+      price: "24900",
       description: "For large scale operations",
       features: [
         "Unlimited SKUs",
@@ -332,7 +329,7 @@ const PricingSection = () => {
           viewport={{once: true}}
           transition={{duration: 0.6}}
         >
-          <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Simple, Transparent Pricing</h2>
           <p className="text-gray-600">Choose the perfect plan for your business needs</p>
         </motion.div>
         <motion.div
@@ -367,7 +364,7 @@ const PricingSection = () => {
               <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
               <p className={`mb-6 ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>{plan.description}</p>
               <div className="mb-6">
-                <span className="text-4xl font-bold">${plan.price}</span>
+                <span className="text-4xl font-bold">{plan.price}<span className="text-sm font-bold ">PKR</span></span>
                 <span className={plan.popular ? 'text-blue-100' : 'text-gray-600'}>/month</span>
               </div>
               <motion.ul
@@ -387,17 +384,19 @@ const PricingSection = () => {
                   </motion.li>
                 ))}
               </motion.ul>
-              <motion.button
-                whileHover={{scale: 1.05}}
-                whileTap={{scale: 0.95}}
-                className={`w-full py-3 rounded-lg transition-colors ${
-                  plan.popular
-                    ? 'bg-white text-blue-600 hover:bg-blue-50'
-                    : 'bg-blue-600 text-white hover:bg-blue-700'
-                }`}
-              >
-                Get Started
-              </motion.button>
+              <Link href='https://app.bizstock.net'>
+                <motion.button
+                  whileHover={{scale: 1.05}}
+                  whileTap={{scale: 0.95}}
+                  className={`w-full px-4 py-2 rounded-lg transition-colors ${
+                    plan.popular
+                      ? 'bg-white text-blue-600 hover:bg-blue-50'
+                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                  }`}
+                >
+                  Get Started
+                </motion.button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
@@ -436,7 +435,7 @@ const FaqSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
           variants={fadeInUp}
         >
-          <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Frequently Asked Questions</h2>
           <p className="text-gray-600">Find answers to common questions about BizStock</p>
         </motion.div>
         <motion.div
@@ -485,7 +484,7 @@ const CtaSection = () => {
       />
       <div className="container mx-auto px-4 text-center relative">
         <motion.h2
-          className="text-4xl font-bold mb-6"
+          className="text-4xl font-bold mb-6 tracking-tighter"
           variants={fadeInUp}
         >
           Ready to Transform Your Business?
@@ -557,7 +556,7 @@ const SiteFooter = () => {
                 width={100}
                 height={100}
               />
-              <div className="text-base sm:text-2xl -ml-4 font-bold text-white">BizStock</div>
+              <div className="text-base sm:text-2xl -ml-4 font-bold text-white tracking-tighter">BizStock</div>
             </motion.div>
             <p className="text-sm">Modern inventory management for modern business.</p>
           </motion.div>
