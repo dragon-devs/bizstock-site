@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Shield, Lock, Cookie, ExternalLink, CheckCircle } from 'lucide-react';
+import {ChevronDown, Shield, Lock, Cookie, ExternalLink, CheckCircle, Box, User} from 'lucide-react';
 
 // Shared animations
 const containerVariants = {
@@ -27,13 +27,13 @@ const itemVariants = {
 };
 
 // Shared Section Component
-const PolicySection = ({ title, icon: Icon, children }: any) => (
+const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-blue-500" }: any) => (
   <motion.div
     variants={itemVariants}
-    className="mb-8 bg-white rounded-xl p-6 transition-shadow"
+    className={` bg-white rounded-xl p-6 transition-shadow ${className}`}
   >
     <div className="flex items-center gap-3 mb-4">
-      <Icon className="w-6 h-6 text-blue-500" />
+      <Icon className={`w-6 h-6 ${iconClass}`} />
       <h3 className="text-xl font-semibold text-gray-800 tracking-tight">{title}</h3>
     </div>
     <div className="text-gray-600 space-y-3">
@@ -56,109 +56,137 @@ export const TermsAndConditions = () => {
         variants={itemVariants}
       >
         <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-          Terms and Conditions
+          Terms & Conditions
         </h1>
         <p className="text-gray-600 text-lg font-semibold tracking-tight">
           Last updated: December 2, 2024
         </p>
       </motion.div>
+      <div className="flex flex-col gap-4 sm:gap-6">
+        <PolicySection className='border' title="Service Usage" icon={CheckCircle}>
+          <p>By using BizStock's inventory management system, you agree to comply with and be bound by these terms and conditions.</p>
+          <ul className="list-disc pl-5 mt-2 space-y-2">
+            <li>You must be at least 18 years old to use this service</li>
+            <li>You are responsible for maintaining the security of your account credentials</li>
+            <li>Usage of the service must comply with all applicable laws and regulations</li>
+          </ul>
+        </PolicySection>
 
-      <PolicySection title="1. Service Usage" icon={CheckCircle}>
-        <p>By using BizStock's inventory management system, you agree to comply with and be bound by these terms and conditions.</p>
-        <ul className="list-disc pl-5 mt-2 space-y-2">
-          <li>You must be at least 18 years old to use this service</li>
-          <li>You are responsible for maintaining the security of your account credentials</li>
-          <li>Usage of the service must comply with all applicable laws and regulations</li>
-        </ul>
-      </PolicySection>
+        <PolicySection className='border' iconClass="text-rose-500" title="Data Management" icon={Lock}>
+          <p>As a user of BizStock, you retain all rights to your inventory data.</p>
+          <ul className="list-disc pl-5 mt-2 space-y-2">
+            <li>We process and store your data in accordance with our Privacy Policy</li>
+            <li>Regular backups are performed to ensure data safety</li>
+            <li>You can export your data at any time</li>
+          </ul>
+        </PolicySection>
 
-      <PolicySection title="2. Data Management" icon={Lock}>
-        <p>As a user of BizStock, you retain all rights to your inventory data.</p>
-        <ul className="list-disc pl-5 mt-2 space-y-2">
-          <li>We process and store your data in accordance with our Privacy Policy</li>
-          <li>Regular backups are performed to ensure data safety</li>
-          <li>You can export your data at any time</li>
-        </ul>
-      </PolicySection>
-
-      <PolicySection title="3. Subscription and Billing" icon={Shield}>
-        <p>Our subscription terms are designed to be transparent and fair.</p>
-        <ul className="list-disc pl-5 mt-2 space-y-2">
-          <li>Monthly or annual billing cycles available</li>
-          <li>Automatic renewal unless cancelled</li>
-          <li>Pro-rated refunds for cancelled annual subscriptions</li>
-        </ul>
-      </PolicySection>
+        <PolicySection className='border' iconClass="text-purple-500" title="Subscription and Billing" icon={Shield}>
+          <p>Our subscription terms are designed to be transparent and fair.</p>
+          <ul className="list-disc pl-5 mt-2 space-y-2">
+            <li>Monthly or annual billing cycles available</li>
+            <li>Automatic renewal unless cancelled</li>
+            <li>Pro-rated refunds for cancelled annual subscriptions</li>
+          </ul>
+        </PolicySection>
+      </div>
     </motion.section>
   );
 };
 
 // Privacy Policy Component
 export const PrivacyPolicy = () => {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<number | null>(null);
 
-  const toggleSection = (index: any) => {
+  const toggleSection = (index: number) => {
     setActiveSection(activeSection === index ? null : index);
   };
 
   const sections = [
     {
       title: "Data Collection",
-      content: `We collect the following types of information:
-        • Account information (name, email, business details)
-        • Inventory data (product details, stock levels, transactions)
-        • Usage data (login times, feature usage, system logs)
-        • Payment information (processed securely through our payment partners)`
+      icon: <User className="w-5 h-5 text-blue-600" />,
+      content: (
+        <>
+          <p className="py-2 text-black">We collect the following types of information:</p>
+          <ul className="list-disc pl-5">
+            <li>Account information (name, email, business details)</li>
+            <li>Inventory data (product details, stock levels, transactions)</li>
+            <li>Usage data (login times, feature usage, system logs)</li>
+            <li>Payment information (processed securely through our payment partners)</li>
+          </ul>
+        </>
+      ),
     },
     {
       title: "Data Usage",
-      content: `Your data is used for:
-        • Providing and improving our inventory management services
-        • Processing transactions and maintaining records
-        • Sending important service updates and notifications
-        • Analytics to improve user experience`
+      icon: <Box className="w-5 h-5 text-purple-600" />,
+      content: (
+        <>
+          <p className="py-2 text-black">Your data is used for:</p>
+          <ul className="list-disc pl-5">
+            <li>Providing and improving our inventory management services</li>
+            <li>Processing transactions and maintaining records</li>
+            <li>Sending important service updates and notifications</li>
+            <li>Analytics to improve user experience</li>
+          </ul>
+        </>
+      ),
     },
     {
       title: "Data Protection",
-      content: `We implement strong security measures:
-        • End-to-end encryption for data transmission
-        • Regular security audits and penetration testing
-        • Multi-factor authentication options
-        • Regular backup procedures`
-    }
+      icon: <Shield className="w-5 h-5 text-rose-600" />,
+      content: (
+        <>
+          <p className="py-2 text-black">We implement strong security measures:</p>
+          <ul className="list-disc pl-5">
+            <li>End-to-end encryption for data transmission</li>
+            <li>Regular security audits and penetration testing</li>
+            <li>Multi-factor authentication options</li>
+            <li>Regular backup procedures</li>
+          </ul>
+        </>
+      ),
+    },
   ];
 
   return (
     <motion.section
       initial="hidden"
       animate="visible"
-      variants={containerVariants}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.3 } },
+      }}
       className="max-w-4xl mx-auto py-16 px-4"
     >
       <motion.div
         className="text-center mb-12"
-        variants={itemVariants}
+        variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
       >
         <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Privacy Policy
         </h1>
-        <p className="text-gray-600">
-          Protecting your data is our top priority
-        </p>
+        <p className="text-gray-600">Protecting your data is our top priority</p>
       </motion.div>
 
       <div className="space-y-4">
         {sections.map((section, index) => (
           <motion.div
             key={index}
-            variants={itemVariants}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
             className="bg-white rounded-xl overflow-hidden"
           >
             <button
               onClick={() => toggleSection(index)}
               className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-50"
             >
-              <h3 className="text-xl font-semibold text-gray-800">{section.title}</h3>
+              <div className="flex items-center gap-3">
+                {section.icon}
+                <h3 className="text-xl font-semibold text-gray-800">
+                  {section.title}
+                </h3>
+              </div>
               <motion.div
                 animate={{ rotate: activeSection === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -176,7 +204,7 @@ export const PrivacyPolicy = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-4 text-gray-600 whitespace-pre-line">
+                  <div className="px-6 bg-gray-50 border-t pb-4 text-gray-600">
                     {section.content}
                   </div>
                 </motion.div>
@@ -210,40 +238,24 @@ export const CookiePolicy = () => {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <motion.div
-          variants={itemVariants}
-          className="bg-white p-6 rounded-xl transition-shadow"
-        >
-          <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <Cookie className="w-5 h-5 text-blue-500 tracking-tight" />
-            Essential Cookies
-          </h3>
-          <p className="text-gray-600">
-            Required for basic functionality:
-            • Authentication
-            • Security features
-            • Session management
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="bg-white p-6 rounded-xl transition-shadow"
-        >
-          <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-            <ExternalLink className="w-5 h-5 text-purple-500 tracking-tight" />
-            Third-Party Cookies
-          </h3>
-          <p className="text-gray-600">
-            Used for enhanced features:
-            • Analytics
-            • Performance monitoring
-            • Feature optimization
-          </p>
-        </motion.div>
+      <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+        <PolicySection className='border' title="Essential Cookies" icon={Cookie}>
+          <p>Required for basic functionality.</p>
+          <ul className="list-disc pl-5">
+            <li>Authentication</li>
+            <li>Security features</li>
+            <li>Session management</li>
+          </ul>
+        </PolicySection>
+        <PolicySection className='border' iconClass="text-rose-500" title="Third-Party Cookies" icon={ExternalLink}>
+          <p>Used for enhanced features:</p>
+          <ul className="list-disc pl-5">
+            <li>Analytics</li>
+            <li>Performance monitoring</li>
+            <li>Feature optimization</li>
+          </ul>
+        </PolicySection>
       </div>
-
       <motion.div
         variants={itemVariants}
         className="mt-8 bg-blue-50 p-6 rounded-xl"

@@ -47,7 +47,7 @@ export const SiteHeader = () => {
       animate={{y: 0}}
       transition={{duration: 0.5, ease: "easeOut"}}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
@@ -89,19 +89,26 @@ export const SiteHeader = () => {
               <motion.button
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
-                className=" px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
+                className=" hidden md:block  px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
               >
                 Login
               </motion.button>
             </Link>
-            <Link className="w-full " href='https://app.bizstock.net/signup'>
+            <Link className=" " href='https://app.bizstock.net/signup'>
               <motion.button
-                whileHover={{scale: 1.05}}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundPosition: "100% 0%",
+                }}
                 whileTap={{scale: 0.95}}
-                className=" hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                initial={{backgroundPosition: "0% 0%"}}
+                animate={{backgroundPosition: "50% 50%"}}
+                className="w-28 py-2 text-sm text-white rounded-lg bg-gradient-to-r from-blue-600 to-rose-600 bg-[length:200%_200%] transition-all"
               >
                 Get Started
               </motion.button>
+
+
             </Link>
           </div>
         </div>
@@ -112,7 +119,7 @@ export const SiteHeader = () => {
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-20 px-4">
+    <section className="pt-32 pb-8 sm:pb-16 px-4">
 
       <div className="container mx-auto text-center">
         <motion.div
@@ -167,15 +174,15 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
         <motion.div
-          className="mt-16 relative"
+          className="sm:mt-16 mt-8 relative"
           initial={{opacity: 0, y: 40}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.8, delay: 0.6}}
         >
           <div
-            className="absolute rounded-2xl inset-0 bg-gradient-to-b from-white/90 via-transparent to-white/90 z-10"></div>
+            className="absolute rounded-2xl inset-0 sm:bg-gradient-to-b from-white/20 via-transparent to-white/20 z-10"></div>
           <motion.div
-            className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200"
+            className="sm:rounded-2xl rounded-lg overflow-hidden shadow-2xl border border-b-gray-100"
             whileHover={{y: -10}}
             transition={{duration: 0.3}}
           >
@@ -252,7 +259,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
+              className="p-6 bg-white rounded-xl hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
               variants={fadeInUp}
               whileHover={{
                 y: -5,
@@ -344,7 +351,7 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`relative p-8 rounded-xl shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow ${
+              className={`relative p-8 rounded-xl hover:shadow-xl hover:shadow-blue-500/30 transition-shadow ${
                 plan.popular ? 'bg-blue-600 text-white' : 'bg-white border border-gray-200'
               }`}
               variants={fadeInUp}
@@ -467,6 +474,7 @@ const FaqSection = () => {
 
   return (
     <motion.section
+      id="faq"
       className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50"
       initial="hidden"
       whileInView="visible"
@@ -494,7 +502,7 @@ const FaqSection = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="bg-white rounded-lg shadow-sm hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
+              className="rounded-lg "
             >
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
