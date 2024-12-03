@@ -39,51 +39,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
-      <title>BizStock - Inventory Management Solution</title>
-      <meta
-        name="description"
-        content="Transform your business with AI-powered inventory control. Real-time analytics, seamless integration, and intelligent stock management for modern businesses."
-      />
-      <meta
-        name="keywords"
-        content="Inventory management, AI inventory, stock tracking, business analytics, cloud inventory system, multi-location inventory"
-      />
-      <link rel="canonical" href="https://bizstock.net"/>
+      <head>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/favicon.ico"
+          sizes="48x48"
+        />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+      >
+        <SiteHeader />
 
-      {/* Open Graph Meta Tags for Social Sharing */}
-      <meta property="og:title" content="BizStock - Revolutionary Inventory Management"/>
-      <meta
-        property="og:description"
-        content="Streamline your inventory with AI-powered tools. Track, analyze, and optimize your stock in real-time."
-      />
-      <meta property="og:type" content="website"/>
-      <meta property="og:url" content="https://bizstock.net"/>
-      <meta property="og:image" content="/og-image.png"/>
-
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content="summary_large_image"/>
-      <meta name="twitter:title" content="BizStock - Inventory Management Reimagined"/>
-      <meta
-        name="twitter:description"
-        content="Inventory solutions for businesses of all sizes. Boost efficiency and reduce costs."
-      />
-      <meta name="twitter:image" content="/twitter-image.png"/>
-      <link
-        rel="icon"
-        type="image/x-icon"
-        href="/favicon.ico"
-        sizes="48x48"
-      />
-      <link rel="apple-touch-icon" href="/apple-icon.png"/>
-    </head>
-    <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
-    >
-    <SiteHeader/>
-
-    {children}
-    </body>
+        {children}
+      </body>
     </html>
   );
 }
