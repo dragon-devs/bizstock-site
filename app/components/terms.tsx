@@ -27,14 +27,16 @@ const itemVariants = {
 };
 
 // Shared Section Component
-const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-blue-500" }: any) => (
+export const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-blue-500" }: any) => (
+
   <motion.div
+    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
     variants={itemVariants}
     className={` bg-white rounded-xl p-6 transition-shadow ${className}`}
   >
     <div className="flex items-center gap-3 mb-4">
-      <Icon className={`w-6 h-6 ${iconClass}`} />
-      <h3 className="text-xl font-semibold text-gray-800 tracking-tight">{title}</h3>
+      <Icon className={`w-8 h-8 p-1 rounded-md ${iconClass}`} />
+      <h3 className="text-xl font-semibold text-gray-800 tracking-tighter">{title}</h3>
     </div>
     <div className="text-gray-600 space-y-3">
       {children}

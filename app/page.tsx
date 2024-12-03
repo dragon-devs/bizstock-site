@@ -1,9 +1,23 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
-import {Building2, CheckCircle2, ChevronDown, CloudCog, Database, LineChart, Settings2, Shield} from 'lucide-react';
+import {
+  BarChart2,
+  Building2,
+  CheckCircle2,
+  ChevronDown,
+  CloudCog,
+  Database,
+  Layers,
+  LineChart,
+  Link2,
+  Settings2,
+  Shield,
+  TrendingDown
+} from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
+import {PolicySection} from "@/app/components/terms";
 
 // Reusable animation variants
 const fadeInUp = {
@@ -203,85 +217,123 @@ const HeroSection = () => {
 const FeaturesSection = () => {
   const features = [
     {
-      icon: <Database className="w-10 h-10 text-blue-500"/>,
+      icon: <Database className="w-8 h-8 text-blue-500"/>,
       title: "Smart Inventory Tracking",
       description: "Real-time monitoring of stock levels with AI-powered predictions and automated reordering."
     },
     {
-      icon: <LineChart className="w-10 h-10 text-blue-500"/>,
+      icon: <LineChart className="w-8 h-8 text-rose-500"/>,
       title: "Advanced Analytics",
       description: "Comprehensive insights into sales trends, inventory turnover, and business performance."
     },
     {
-      icon: <CloudCog className="w-10 h-10 text-blue-500"/>,
+      icon: <CloudCog className="w-8 h-8 text-green-500"/>,
       title: "Cloud Integration",
       description: "Seamless integration with popular e-commerce platforms and accounting software."
     },
     {
-      icon: <Building2 className="w-10 h-10 text-blue-500"/>,
+      icon: <Building2 className="w-8 h-8 text-purple-500"/>,
       title: "Multi-location Support",
       description: "Manage multiple warehouses and retail locations from a single dashboard."
     },
     {
-      icon: <Shield className="w-10 h-10 text-blue-500"/>,
+      icon: <Shield className="w-8 h-8 text-indigo-500"/>,
       title: "Enterprise Security",
       description: "Bank-grade encryption and advanced access controls to protect your data."
     },
     {
-      icon: <Settings2 className="w-10 h-10 text-blue-500"/>,
+      icon: <Settings2 className="w-8 h-8 text-amber-500"/>,
       title: "Customizable Workflow",
       description: "Tailor the system to match your specific business processes and requirements."
     }
   ];
+  const containerVariants = {
+    hidden: {opacity: 0},
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
+
 
   return (
-    <section id="features"
-             className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80">
+    <motion.section
+      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{once: true, margin: "-100px"}}
+      variants={containerVariants}
+    >
       <div className="container max-w-[72rem] mx-auto px-4">
-        <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{opacity: 0, y: 20}}
-          whileInView={{opacity: 1, y: 0}}
-          viewport={{once: true}}
-          transition={{duration: 0.6}}
+        <motion.h2
+          className="text-4xl font-bold mb-4 text-center tracking-tighter"
+          variants={itemVariants}
         >
-          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Powerful Features for Modern Business</h2>
-          <p className="text-gray-600">Everything you need to streamline your inventory management and boost
-            efficiency.</p>
-        </motion.div>
+          Powerful Features for Modern Business
+        </motion.h2>
+        <motion.p
+          className="text-gray-600 text-center mb-16"
+          variants={itemVariants}
+        >
+          Everything you need to streamline your inventory management and boost efficiency.
+        </motion.p>
+
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{once: true}}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-4"
+          variants={containerVariants}
         >
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-white rounded-xl hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
-              variants={fadeInUp}
-              whileHover={{
-                y: -5,
-                transition: {duration: 0.2}
-              }}
+              variants={itemVariants}
+              whileInView={{scale: 1}}
+
+              className="p-6 bg-white rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 transform origin-center"
             >
               <motion.div
                 className="mb-4"
-                initial={{scale: 0}}
-                whileInView={{scale: 1}}
-                viewport={{once: true}}
-                transition={{delay: index * 0.1}}
+                initial={{x: -20, opacity: 0}}
+                whileInView={{x: 0, opacity: 1}}
+                transition={{delay: 0.3, duration: 0.5}}
               >
                 {feature.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tighter">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <motion.h3
+                initial={{x: -20, opacity: 0}}
+                whileInView={{x: 0, opacity: 1}}
+                transition={{delay: 0.4, duration: 0.5}}
+                className="text-xl font-semibold mb-2 tracking-tighter">
+                {feature.title}
+              </motion.h3>
+              <motion.p
+                initial={{x: -20, opacity: 0}}
+                whileInView={{x: 0, opacity: 1}}
+                transition={{delay: 0.5, duration: 0.5}}
+                className="text-gray-600">
+                {feature.description}
+              </motion.p>
             </motion.div>
           ))}
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -342,7 +394,7 @@ const PricingSection = () => {
           <p className="text-gray-600">Choose the perfect plan for your business needs</p>
         </motion.div>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
@@ -414,6 +466,203 @@ const PricingSection = () => {
   );
 };
 
+const SEOContentSection = () => {
+  const containerVariants = {
+    hidden: {opacity: 0, y: 20},
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {opacity: 0, y: 20},
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const seoContentItems = [
+    {
+      icon: Layers,
+      iconColor: "text-blue-600 bg-blue-100",
+      title: "Comprehensive Inventory Tracking",
+      description: "Gain total visibility with real-time stock level monitoring, automatic low stock alerts, precise location tracking across multiple warehouses, batch and serial number tracking, and advanced product variant management."
+    },
+    {
+      icon: BarChart2,
+      iconColor: "text-green-600 bg-green-100",
+      title: "Advanced Reporting and Analytics",
+      description: "Transform data into actionable insights with customizable dashboards, inventory turnover rate analysis, profit margin calculations, seasonal trend identification, and comprehensive financial reporting."
+    },
+    {
+      icon: Link2,
+      iconColor: "text-purple-600 bg-purple-100",
+      title: "Multi-Channel Synchronization",
+      description: "Eliminate inventory discrepancies with seamless integration across e-commerce platforms, point of sale systems, and automatic stock updates. Prevent overselling and maintain real-time accuracy across all sales channels."
+    },
+    {
+      icon: TrendingDown,
+      iconColor: "text-red-600 bg-red-100",
+      title: "Cost Optimization Tools",
+      description: "Maximize efficiency with intelligent reorder point calculations, stock level recommendations, carrying cost analysis, supplier performance tracking, and identification of slow-moving inventory."
+    }
+  ];
+  return (
+    <motion.section
+      className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{once: true, margin: "-100px"}}
+      variants={containerVariants}
+    >
+      <div className="container mx-auto px-4 max-w-6xl">
+        <motion.h2
+          className="text-4xl font-bold mb-12 text-center tracking-tighter"
+          variants={itemVariants}
+        >
+          Why BizStock is the Ultimate Inventory Management Solution
+        </motion.h2>
+        <motion.div
+          className="grid md:grid-cols-2 sm:gap-6 gap-4"
+          variants={containerVariants}
+        >
+          {seoContentItems.map((item, index) => (
+            <PolicySection key={index} className='border' iconClass={item.iconColor} title={item.title}
+                           icon={item.icon}>
+              <p>{item.description}</p>
+            </PolicySection>
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
+
+const TestimonialsSection = () => {
+  const containerVariants = {
+    hidden: {opacity: 0, y: 20},
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: {opacity: 0, y: 20},
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const testimonials = [
+    // {
+    //   quote: "BizStock revolutionized our inventory management. We've reduced costs by 30%!",
+    //   name: "Sarah Johnson",
+    //   company: "RetailPro Solutions"
+    // },
+    // {
+    //   quote: "The AI predictions are incredibly accurate. We never run out of stock anymore.",
+    //   name: "Mike Thompson",
+    //   company: "Global Traders Inc."
+    // },
+    {
+      quote: "As a small business, BizStock has been a game-changer. The inventory tracking is so intuitive and saves us hours of manual work.",
+      name: "Emily Rodriguez",
+      company: "Coastal Craft Supplies"
+    },
+    {
+      quote: "We operate across multiple warehouses, and BizStock's multi-location inventory management has streamlined our entire supply chain.",
+      name: "David Chen",
+      company: "Nationwide Distribution Partners"
+    },
+    {
+      quote: "The real-time reporting and analytics have helped us make more informed purchasing decisions. Truly a must-have for any serious business.",
+      name: "Lisa Patel",
+      company: "Tech Innovations Retail"
+    },
+    {
+      quote: "BizStock's integration capabilities mean we can connect our e-commerce, point of sale, and inventory systems seamlessly. No more manual data entry!",
+      name: "Robert Williams",
+      company: "Online Marketplace Solutions"
+    }
+  ];
+  return (
+    <motion.section
+      className="py-16 "
+      initial="hidden"
+      whileInView="visible"
+      viewport={{once: true, margin: "-100px"}}
+      variants={containerVariants}
+    >
+      <div className="container mx-auto px-4 max-w-6xl">
+        <motion.h2
+          className="text-4xl font-bold mb-12 text-center tracking-tighter"
+          variants={itemVariants}
+        >
+          Trusted by Businesses Worldwide
+        </motion.h2>
+        <motion.div
+          className="grid md:grid-cols-2 gap-8"
+          variants={containerVariants}
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{
+                scale: 1.05,
+                rotate: index % 2 === 0 ? 2 : -2,
+                transition: {duration: 0.2}
+              }}
+              className=" p-6 rounded-xl hover:border hover:border-blue-500/50 transition-all duration-300 transform origin-center"
+            >
+              <motion.p
+                className="italic mb-4 text-gray-700 text-lg"
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                transition={{delay: 0.3, duration: 0.5}}
+              >
+                "{testimonial.quote}"
+              </motion.p>
+              <div className="font-semibold">
+                <motion.p
+                  initial={{x: -20, opacity: 0}}
+                  whileInView={{x: 0, opacity: 1}}
+                  transition={{delay: 0.4, duration: 0.5}}
+                >
+                  {testimonial.name}
+                </motion.p>
+                <motion.p
+                  className="text-gray-600 text-sm"
+                  initial={{x: -20, opacity: 0}}
+                  whileInView={{x: 0, opacity: 1}}
+                  transition={{delay: 0.5, duration: 0.5}}
+                >
+                  {testimonial.company}
+                </motion.p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
 
 const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -434,7 +683,7 @@ const FaqSection = () => {
   ];
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: {opacity: 0, y: 20},
     visible: {
       opacity: 1,
       y: 0,
@@ -445,7 +694,7 @@ const FaqSection = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: {opacity: 0, y: 20},
     visible: {
       opacity: 1,
       y: 0,
@@ -456,7 +705,7 @@ const FaqSection = () => {
   };
 
   const contentVariants = {
-    hidden: { height: 0, opacity: 0 },
+    hidden: {height: 0, opacity: 0},
     visible: {
       height: "auto",
       opacity: 1,
@@ -478,10 +727,10 @@ const FaqSection = () => {
       className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{once: true, margin: "-100px"}}
       variants={containerVariants}
     >
-      <div className="container mx-auto px-4 max-w-3xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           className="text-center mb-16"
           variants={itemVariants}
@@ -507,15 +756,15 @@ const FaqSection = () => {
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full text-left px-6 py-4 flex justify-between items-center"
-                whileHover={{ scale: 1.005 }}
-                whileTap={{ scale: 0.995 }}
+                whileHover={{scale: 1.005}}
+                whileTap={{scale: 0.995}}
               >
                 <h3 className="sm:text-lg text-base font-semibold pr-4">{faq.question}</h3>
                 <motion.div
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  animate={{rotate: openIndex === index ? 180 : 0}}
+                  transition={{duration: 0.3}}
                 >
-                  <ChevronDown className="flex-shrink-0" />
+                  <ChevronDown className="flex-shrink-0"/>
                 </motion.div>
               </motion.button>
 
@@ -530,10 +779,10 @@ const FaqSection = () => {
                   >
                     <motion.div
                       className="px-6 pb-4 text-gray-600"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
+                      initial={{opacity: 0, y: 10}}
+                      animate={{opacity: 1, y: 0}}
+                      exit={{opacity: 0, y: -10}}
+                      transition={{duration: 0.3}}
                     >
                       {faq.answer}
                     </motion.div>
@@ -615,6 +864,24 @@ const CtaSection = () => {
 };
 
 const SiteFooter = () => {
+  const footerLinks = {
+    Product: [
+      {name: 'Features', href: '#features'},
+      {name: 'Pricing', href: '#pricing'},
+      {name: 'Integrations', href: '#integrations'}
+    ],
+    Company: [
+      {name: 'About Us', href: '/about'},
+      {name: 'Careers', href: '/careers'},
+      {name: 'Press', href: '/press'}
+    ],
+    Resources: [
+      {name: 'Blog', href: '/blog'},
+      {name: 'Documentation', href: '/docs'},
+      {name: 'Support', href: '/support'}
+    ]
+  };
+
   const linkVariants = {
     hover: {x: 5, color: "#ffffff"}
   };
@@ -726,7 +993,8 @@ const SiteFooter = () => {
                     width={100}
                     height={100}
                     className="w-4 h-4 rounded-full mr-1"/>
-                    <span className="drop-shadow-[0_5px_10px_rgba(59,130,246,1)]">dragondevs</span>                </Link>
+                    <span
+                      className="drop-shadow-[0_5px_10px_rgba(59,130,246,1)]">dragondevs</span>                </Link>
               </span>
             </motion.p>
             <motion.div
@@ -736,10 +1004,10 @@ const SiteFooter = () => {
               animate="animate"
             >
               {[
-                { text: 'Privacy Policy', href: '/privacy-policy' },
-                { text: 'Terms & Conditions', href: '/terms-and-conditions' },
-                { text: 'Cookies', href: '/cookies' },
-              ].map(({ text, href }) => (
+                {text: 'Privacy Policy', href: '/privacy-policy'},
+                {text: 'Terms & Conditions', href: '/terms-and-conditions'},
+                {text: 'Cookies', href: '/cookies'},
+              ].map(({text, href}) => (
                 <Link
                   key={href}
                   href={href}
@@ -771,6 +1039,8 @@ export default function Home() {
           <HeroSection/>
           <FeaturesSection/>
           <PricingSection/>
+          <SEOContentSection/>
+          <TestimonialsSection/>
           <FaqSection/>
           <CtaSection/>
         </main>
