@@ -10,7 +10,8 @@ import {
   Database,
   Layers,
   LineChart,
-  Link2, Quote,
+  Link2,
+  Quote,
   Settings2,
   Shield,
   TrendingDown
@@ -43,9 +44,41 @@ const staggerChildren = {
   }
 };
 
+const SiteTags = ({ href, name, className = 'text-gray-600 hover:text-blue-600' }: any) => {
+  return (
+    <Link href={href} className={`${className} transition-colors`}>
+      {name}
+    </Link>
+  );
+};
+
+const SiteTagsList = ({ tags }: any) => {
+  return (
+    <>
+      {tags.map((item: any, index: any) => (
+        <motion.span
+          key={index}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: index * 0.1 }}
+        >
+          <SiteTags href={item.href} name={item.name} />
+        </motion.span>
+      ))}
+    </>
+  );
+};
 
 export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const siteTags = [
+    { name: 'Features', href: '#features' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'FAQ', href: '#faq' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,69 +90,49 @@ export const SiteHeader = () => {
 
   return (
     <motion.header
-      initial={{y: -100}}
-      animate={{y: 0}}
-      transition={{duration: 0.5, ease: "easeOut"}}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
       }`}
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
         <div className="flex items-center justify-between">
-          <Link
-            href="#"
-            className="flex items-center space-x-2"
-          >
+          <Link href="#" className="flex items-center space-x-2">
             <Image
               src="/biz-stock-logo.svg"
-              className="sm:h-12 sm:w-12 h-10 w-10 -mr-2  "
+              className="sm:h-12 sm:w-12 h-10 w-10 -mr-2"
               alt="Biz Stock"
               width={100}
               height={100}
             />
-            <span
-              className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
+            <span className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
               BizStock
             </span>
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            {['Features', 'Pricing', 'FAQ'].map((item, index) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                <motion.span
-                  whileHover={{scale: 1.1}}
-                  whileTap={{scale: 0.95}}
-                  initial={{opacity: 0, x: -20}}
-                  animate={{opacity: 1, x: 0}}
-                  transition={{delay: index * 0.1}}
-                >
-                  {item}
-                </motion.span>
-              </Link>
-            ))}
+            <SiteTagsList tags={siteTags} />
           </nav>
           <div className="flex items-center sm:space-x-4">
-            <Link className="w-full sm:w-fit" href='https://app.bizstock.net/signin'>
+            <Link className="w-full sm:w-fit" href="https://app.bizstock.net/signin">
               <motion.button
-                whileHover={{scale: 1.05}}
-                whileTap={{scale: 0.95}}
-                className=" hidden md:block  px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden md:block px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
               >
                 Login
               </motion.button>
             </Link>
-            <Link className=" " href='https://app.bizstock.net/register'>
+            <Link href="https://app.bizstock.net/register">
               <motion.button
                 whileHover={{
                   scale: 1.05,
-                  backgroundPosition: "100% 0%",
+                  backgroundPosition: '100% 0%',
                 }}
-                whileTap={{scale: 0.95}}
-                initial={{backgroundPosition: "0% 0%"}}
-                animate={{backgroundPosition: "50% 50%"}}
+                whileTap={{ scale: 0.95 }}
+                initial={{ backgroundPosition: '0% 0%' }}
+                animate={{ backgroundPosition: '50% 50%' }}
                 className="w-28 py-2 text-sm text-white rounded-lg bg-gradient-to-r from-blue-600 to-rose-600 bg-[length:200%_200%] transition-all"
               >
                 Get Started
@@ -131,6 +144,7 @@ export const SiteHeader = () => {
     </motion.header>
   );
 };
+
 
 const HeroSection = () => {
   return (
@@ -157,8 +171,8 @@ const HeroSection = () => {
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.8, delay: 0.4}}
           >
-              Revolutionize your inventory management with cutting-edge tools, real-time analytics, and seamless
-              integrations to transform the way you handle your stock.
+            Revolutionize your inventory management with cutting-edge tools, real-time analytics, and seamless
+            integrations to transform the way you handle your stock.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
@@ -694,18 +708,18 @@ const TestimonialsSection = () => {
       className="py-16"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{once: true, margin: "-100px"}}
       variants={{
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 0.5 } }
+        hidden: {opacity: 0},
+        visible: {opacity: 1, transition: {duration: 0.5}}
       }}
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
           className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tighter"
           variants={{
-            hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+            hidden: {opacity: 0, y: -20},
+            visible: {opacity: 1, y: 0, transition: {duration: 0.5}}
           }}
         >
           Trusted by Businesses Worldwide
@@ -889,7 +903,7 @@ const FaqSection = () => {
                 whileHover={{scale: 1.005}}
                 whileTap={{scale: 0.995}}
               >
-                <h3 className="sm:text-lg text-base font-semibold pr-4 leading-none">{faq.question}</h3>
+                <p className="sm:text-lg text-base font-semibold pr-4 leading-none">{faq.question}</p>
                 <motion.div
                   animate={{rotate: openIndex === index ? 180 : 0}}
                   transition={{duration: 0.3}}
@@ -996,31 +1010,31 @@ const CtaSection = () => {
 const SiteFooter = () => {
   const footerLinks = {
     Product: [
-      { name: "Features", href: "#features" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "FAQ", href: "#faq" },
+      {name: "Features", href: "#features"},
+      {name: "Pricing", href: "#pricing"},
+      {name: "FAQ", href: "#faq"},
     ],
     Company: [
-      { name: "About Us", href: "/about" },
-      { name: "Careers", href: "/careers" },
+      {name: "About Us", href: "/about"},
+      {name: "Careers", href: "/careers"},
     ],
     Resources: [
-      { name: "Blog", href: "/blog" },
-      { name: "Documentation", href: "/docs" },
-      { name: "Support", href: "/support" },
+      {name: "Blog", href: "/blog"},
+      {name: "Documentation", href: "/docs"},
+      {name: "Support", href: "/support"},
     ],
   };
 
   const linkVariants = {
-    hover: { x: 5, color: "#ffffff" },
+    hover: {x: 5, color: "#ffffff"},
   };
 
   return (
     <motion.footer
       className="bg-gray-900 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] text-gray-400 py-12"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      transition={{duration: 0.5}}
     >
       <div className="container max-w-[72rem] mx-auto px-4">
         <motion.div
@@ -1047,13 +1061,11 @@ const SiteFooter = () => {
 
           {Object.entries(footerLinks).map(([section, links]) => (
             <motion.div key={section} variants={fadeInUp}>
-              <h3 className="text-white font-semibold mb-4">{section}</h3>
+              <p className="text-white font-semibold mb-4">{section}</p>
               <ul className="space-y-2">
-                {links.map(({ name, href }) => (
+                {links.map(({name, href}) => (
                   <motion.li key={name} variants={fadeInUp}>
-                    <Link href={href} className="block hover:text-white transition-all">
-                      {name}
-                    </Link>
+                    <SiteTags href={href} name={name} className="text-gray-500 hover:text-white"/>
                   </motion.li>
                 ))}
               </ul>
@@ -1063,9 +1075,9 @@ const SiteFooter = () => {
 
         <motion.div
           className="border-t border-gray-800 mt-12 pt-8 text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{delay: 0.5}}
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.p
@@ -1099,10 +1111,10 @@ const SiteFooter = () => {
               animate="animate"
             >
               {[
-                { text: "Privacy Policy", href: "/privacy-policy" },
-                { text: "Terms & Conditions", href: "/terms-and-conditions" },
-                { text: "Cookies", href: "/cookies" },
-              ].map(({ text, href }) => (
+                {text: "Privacy Policy", href: "/privacy-policy"},
+                {text: "Terms & Conditions", href: "/terms-and-conditions"},
+                {text: "Cookies", href: "/cookies"},
+              ].map(({text, href}) => (
                 <Link key={href} href={href} className="hover:text-white transition-colors">
                   {text}
                 </Link>
