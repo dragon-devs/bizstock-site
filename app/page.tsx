@@ -156,8 +156,8 @@ const HeroSection = () => {
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.8, delay: 0.4}}
           >
-            Transform your business with AI-powered inventory control, real-time analytics, and seamless integration
-            capabilities.
+              Revolutionize your inventory management with cutting-edge tools, real-time analytics, and seamless
+              integrations to transform the way you handle your stock.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
