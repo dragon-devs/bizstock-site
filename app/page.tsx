@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {
   BarChart2,
@@ -546,6 +546,7 @@ const SEOContentSection = () => {
   );
 };
 
+
 const TestimonialsSection = () => {
   const containerVariants = {
     hidden: {opacity: 0, y: 20},
@@ -570,16 +571,16 @@ const TestimonialsSection = () => {
   };
 
   const testimonials = [
-    // {
-    //   quote: "BizStock revolutionized our inventory management. We've reduced costs by 30%!",
-    //   name: "Sarah Johnson",
-    //   company: "RetailPro Solutions"
-    // },
-    // {
-    //   quote: "The AI predictions are incredibly accurate. We never run out of stock anymore.",
-    //   name: "Mike Thompson",
-    //   company: "Global Traders Inc."
-    // },
+    {
+      quote: "BizStock revolutionized our inventory management. We've reduced costs by 30%!",
+      name: "Sarah Johnson",
+      company: "RetailPro Solutions"
+    },
+    {
+      quote: "The AI predictions are incredibly accurate. We never run out of stock anymore.",
+      name: "Mike Thompson",
+      company: "Global Traders Inc."
+    },
     {
       quote: "As a small business, BizStock has been a game-changer. The inventory tracking is so intuitive and saves us hours of manual work.",
       name: "Emily Rodriguez",
@@ -599,66 +600,157 @@ const TestimonialsSection = () => {
       quote: "BizStock's integration capabilities mean we can connect our e-commerce, point of sale, and inventory systems seamlessly. No more manual data entry!",
       name: "Robert Williams",
       company: "Online Marketplace Solutions"
+    },
+    {
+      quote: "We've seen a 20% increase in efficiency since implementing BizStock. It’s the best inventory system we've ever used.",
+      name: "Jessica Lee",
+      company: "Smart Logistics Co."
+    },
+    {
+      quote: "BizStock’s user-friendly interface made onboarding effortless. Our team got up to speed in no time.",
+      name: "Carlos Garcia",
+      company: "Metro Supplies"
+    },
+    {
+      quote: "The customer support is phenomenal! They guided us through every step of the implementation process.",
+      name: "Priya Desai",
+      company: "Elegant Decor Ltd."
+    },
+    {
+      quote: "The customizable dashboards and reports let us track what matters most to our business. It’s a game-changer.",
+      name: "Alex Carter",
+      company: "Green Earth Enterprises"
+    },
+    {
+      quote: "With BizStock, we've minimized overstocking and stockouts, saving us thousands of dollars annually.",
+      name: "Sophia Nguyen",
+      company: "Urban Outfitters Supply"
+    },
+    {
+      quote: "I can now manage my entire inventory from my phone. The mobile experience is top-notch!",
+      name: "Ethan Brooks",
+      company: "Mobile Marketplaces"
+    },
+    {
+      quote: "BizStock has completely transformed how we handle seasonal inventory surges. It's perfect for scaling businesses.",
+      name: "Emma Davis",
+      company: "Holiday Retailers"
+    },
+    {
+      quote: "Their subscription tiers made it affordable for us to start small and scale up as we grew. Highly recommend it!",
+      name: "Olivia White",
+      company: "Startup Supplies"
+    },
+    {
+      quote: "The audit trail feature has made compliance and inventory audits so much easier for our business.",
+      name: "Noah Harris",
+      company: "Compliant Logistics LLC"
+    },
+    {
+      quote: "BizStock's forecasting tools have given us a clear edge over our competitors. Our stock planning is now flawless.",
+      name: "Mia King",
+      company: "Precision Tech Distributors"
+    },
+    {
+      quote: "I love how it integrates perfectly with our accounting software. Inventory management and accounting are now in sync.",
+      name: "Liam Scott",
+      company: "Streamline Enterprises"
+    },
+    {
+      quote: "The barcode scanning feature has significantly sped up our warehouse operations. A fantastic tool!",
+      name: "Grace Turner",
+      company: "Swift Warehousing Solutions"
     }
   ];
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
+
+  // Handle scrolling animation
+  useEffect(() => {
+    const container = containerRef.current;
+    let scrollInterval: string | number | NodeJS.Timeout | undefined;
+
+    if (!isPaused) {
+      scrollInterval = setInterval(() => {
+        if (container) {
+          container.scrollLeft += 2; // Adjust speed by changing the increment
+          if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+            container.scrollLeft = 0; // Reset to loop
+          }
+        }
+      }, 20); // Adjust speed by changing the interval delay
+    }
+
+    return () => clearInterval(scrollInterval);
+  }, [isPaused]);
+
   return (
     <motion.section
-      className="py-16 "
+      className="py-16"
       initial="hidden"
       whileInView="visible"
-      viewport={{once: true, margin: "-100px"}}
-      variants={containerVariants}
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.5 } }
+      }}
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center tracking-tighter"
-          variants={itemVariants}
+          className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tighter"
+          variants={{
+            hidden: { opacity: 0, y: -20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+          }}
         >
           Trusted by Businesses Worldwide
         </motion.h2>
-        <motion.div
-          className="grid md:grid-cols-2 gap-8"
-          variants={containerVariants}
+        <div
+          ref={containerRef}
+          className="flex overflow-hidden sm:gap-6 gap-4 p-4 sm:p-8 scrollbar-hide"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={() => setIsPaused(false)}
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
               whileHover={{
                 scale: 1.05,
-                rotate: index % 2 === 0 ? 2 : -2,
-                transition: {duration: 0.2}
+                rotate: index % 1 === 0 ? 1 : -1,
+                transition: { duration: 0.2 }
               }}
-              className=" p-6 rounded-xl hover:border hover:border-blue-500/50 transition-all duration-300 transform origin-center"
+              className="min-w-full md:min-w-[400px] p-4 sm:p-6 inline-block rounded-xl hover:border  hover:sm:shadow-lg hover:shadow-blue-500/50 hover:border-blue-500/50 transition-all duration-300 transform"
             >
               <motion.p
                 className="italic mb-4 text-gray-700 text-lg"
-                initial={{opacity: 0}}
-                whileInView={{opacity: 1}}
-                transition={{delay: 0.3, duration: 0.5}}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
               >
                 "{testimonial.quote}"
               </motion.p>
               <div className="font-semibold">
                 <motion.p
-                  initial={{x: -20, opacity: 0}}
-                  whileInView={{x: 0, opacity: 1}}
-                  transition={{delay: 0.4, duration: 0.5}}
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
                 >
                   {testimonial.name}
                 </motion.p>
                 <motion.p
                   className="text-gray-600 text-sm"
-                  initial={{x: -20, opacity: 0}}
-                  whileInView={{x: 0, opacity: 1}}
-                  transition={{delay: 0.5, duration: 0.5}}
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   {testimonial.company}
                 </motion.p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );
@@ -679,6 +771,34 @@ const FaqSection = () => {
     {
       question: "Do you offer a free trial?",
       answer: "Yes, we offer a 30-day free trial with full access to all features. No payment method required to start your trial."
+    },
+    {
+      question: "Can I customize the system to fit my business needs?",
+      answer: "Yes, BizStock is highly customizable. You can configure modules, reports, and workflows to match your unique business requirements."
+    },
+    {
+      question: "What kind of support do you provide?",
+      answer: "We offer 24/7 customer support through chat, email, and phone. Our knowledge base and video tutorials are also available to help you navigate the platform."
+    },
+    {
+      question: "Does BizStock integrate with other tools?",
+      answer: "Yes, BizStock integrates seamlessly with a variety of tools, including accounting software, e-commerce platforms, and payment gateways."
+    },
+    {
+      question: "Is BizStock suitable for small businesses?",
+      answer: "Definitely. BizStock is designed to be scalable, making it suitable for small businesses, growing companies, and large enterprises alike."
+    },
+    {
+      question: "Can I access BizStock on mobile devices?",
+      answer: "Yes, BizStock is fully responsive and can be accessed on any device, including smartphones and tablets, for on-the-go convenience."
+    },
+    {
+      question: "How often do you release updates or new features?",
+      answer: "We regularly release updates based on user feedback and industry trends. All updates are automatically applied at no additional cost."
+    },
+    {
+      question: "What happens if I decide to stop using BizStock?",
+      answer: "If you decide to discontinue, you can export all your data in a compatible format. We ensure a hassle-free exit process."
     }
   ];
 
@@ -866,32 +986,32 @@ const CtaSection = () => {
 const SiteFooter = () => {
   const footerLinks = {
     Product: [
-      {name: 'Features', href: '#features'},
-      {name: 'Pricing', href: '#pricing'},
-      {name: 'Integrations', href: '#integrations'}
+      { name: "Features", href: "#features" },
+      { name: "Pricing", href: "#pricing" },
+      { name: "Integrations", href: "#integrations" },
     ],
     Company: [
-      {name: 'About Us', href: '/about'},
-      {name: 'Careers', href: '/careers'},
-      {name: 'Press', href: '/press'}
+      { name: "About Us", href: "/about" },
+      { name: "Careers", href: "/careers" },
+      { name: "Press", href: "/press" },
     ],
     Resources: [
-      {name: 'Blog', href: '/blog'},
-      {name: 'Documentation', href: '/docs'},
-      {name: 'Support', href: '/support'}
-    ]
+      { name: "Blog", href: "/blog" },
+      { name: "Documentation", href: "/docs" },
+      { name: "Support", href: "/support" },
+    ],
   };
 
   const linkVariants = {
-    hover: {x: 5, color: "#ffffff"}
+    hover: { x: 5, color: "#ffffff" },
   };
 
   return (
     <motion.footer
-      className="bg-gray-900  w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] text-gray-400 py-12"
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      transition={{duration: 0.5}}
+      className="bg-gray-900 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] text-gray-400 py-12"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="container max-w-[72rem] mx-auto px-4">
         <motion.div
@@ -901,10 +1021,7 @@ const SiteFooter = () => {
           animate="animate"
         >
           <motion.div variants={fadeInUp}>
-            <Link
-              href="/"
-              className="flex items-center -ml-2 mb-4"
-            >
+            <Link href="/" className="flex items-center -ml-2 mb-4">
               <Image
                 src="/biz-stock-logo.svg"
                 className="sm:h-12 sm:w-12 h-10 w-10 mr-4 filter invert"
@@ -912,54 +1029,24 @@ const SiteFooter = () => {
                 width={100}
                 height={100}
               />
-              <div className="text-base sm:text-2xl -ml-4 font-bold text-white tracking-tighter">BizStock</div>
+              <div className="text-base sm:text-2xl -ml-4 font-bold text-white tracking-tighter">
+                BizStock
+              </div>
             </Link>
             <p className="text-sm">Modern inventory management for modern business.</p>
           </motion.div>
 
-          {['Details', 'Resources'].map((section, index) => (
+          {Object.entries(footerLinks).map(([section, links]) => (
             <motion.div key={section} variants={fadeInUp}>
               <h3 className="text-white font-semibold mb-4">{section}</h3>
               <ul className="space-y-2">
-                {index === 0 ? (
-                  <>
-                    {/*<motion.li variants={fadeInUp}>*/}
-                    {/*  <Link*/}
-                    {/*    href="https://dragon-devs.vercel.app/"*/}
-                    {/*    className="block"*/}
-                    {/*  >*/}
-                    {/*    Careers*/}
-                    {/*  </Link>*/}
-                    {/*</motion.li>*/}
-                    <motion.li variants={fadeInUp}>
-                      <Link
-                        href="https://dragon-devs.vercel.app"
-                        className="block hover:text-white transition-all"
-                      >
-                        Contact Us
-                      </Link>
-                    </motion.li>
-                  </>
-                ) : (
-                  <>
-                    <motion.li variants={fadeInUp}>
-                      <Link
-                        href="#"
-                        className="block hover:text-white transition-all"
-                      >
-                        Documentation
-                      </Link>
-                    </motion.li>
-                    <motion.li variants={fadeInUp}>
-                      <Link
-                        href="#"
-                        className="block hover:text-white transition-all"
-                      >
-                        Support
-                      </Link>
-                    </motion.li>
-                  </>
-                )}
+                {links.map(({ name, href }) => (
+                  <motion.li key={name} variants={fadeInUp}>
+                    <Link href={href} className="block hover:text-white transition-all">
+                      {name}
+                    </Link>
+                  </motion.li>
+                ))}
               </ul>
             </motion.div>
           ))}
@@ -967,9 +1054,9 @@ const SiteFooter = () => {
 
         <motion.div
           className="border-t border-gray-800 mt-12 pt-8 text-sm"
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          transition={{delay: 0.5}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.p
@@ -978,9 +1065,7 @@ const SiteFooter = () => {
               animate="animate"
               className="flex gap-2 flex-col md:flex-row justify-center items-center leading-none"
             >
-              <span>
-                &copy; 2024 BizStock. All rights reserved.
-              </span>
+              <span>&copy; 2024 BizStock. All rights reserved.</span>
               <span className="flex gap-1 items-center">
                 <span className="text-muted-foreground">developed by</span>
                 <Link
@@ -988,13 +1073,14 @@ const SiteFooter = () => {
                   href="https://dragon-devs.vercel.app"
                 >
                   <Image
-                    src='/dragondevs-logo.png'
-                    alt='dragon'
+                    src="/dragondevs-logo.png"
+                    alt="dragon"
                     width={100}
                     height={100}
-                    className="w-4 h-4 rounded-full mr-1"/>
-                    <span
-                      className="drop-shadow-[0_5px_10px_rgba(59,130,246,1)]">dragondevs</span>                </Link>
+                    className="w-4 h-4 rounded-full mr-1"
+                  />
+                  <span className="drop-shadow-[0_5px_10px_rgba(59,130,246,1)]">dragondevs</span>
+                </Link>
               </span>
             </motion.p>
             <motion.div
@@ -1004,26 +1090,20 @@ const SiteFooter = () => {
               animate="animate"
             >
               {[
-                {text: 'Privacy Policy', href: '/privacy-policy'},
-                {text: 'Terms & Conditions', href: '/terms-and-conditions'},
-                {text: 'Cookies', href: '/cookies'},
-              ].map(({text, href}) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="hover:text-white transition-colors"
-                >
+                { text: "Privacy Policy", href: "/privacy-policy" },
+                { text: "Terms & Conditions", href: "/terms-and-conditions" },
+                { text: "Cookies", href: "/cookies" },
+              ].map(({ text, href }) => (
+                <Link key={href} href={href} className="hover:text-white transition-colors">
                   {text}
                 </Link>
               ))}
             </motion.div>
           </div>
         </motion.div>
-
       </div>
     </motion.footer>
-  )
-    ;
+  );
 };
 
 export default function Home() {
