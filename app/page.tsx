@@ -10,7 +10,7 @@ import {
   Database,
   Layers,
   LineChart,
-  Link2,
+  Link2, Quote,
   Settings2,
   Shield,
   TrendingDown
@@ -67,7 +67,7 @@ export const SiteHeader = () => {
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
         <div className="flex items-center justify-between">
           <Link
-            href="/"
+            href="#"
             className="flex items-center space-x-2"
           >
             <Image
@@ -84,18 +84,21 @@ export const SiteHeader = () => {
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
             {['Features', 'Pricing', 'FAQ'].map((item, index) => (
-              <motion.a
+              <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-gray-600 hover:text-blue-600 transition-colors"
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 0.95}}
-                initial={{opacity: 0, x: -20}}
-                animate={{opacity: 1, x: 0}}
-                transition={{delay: index * 0.1}}
               >
-                {item}
-              </motion.a>
+                <motion.span
+                  whileHover={{scale: 1.1}}
+                  whileTap={{scale: 0.95}}
+                  initial={{opacity: 0, x: -20}}
+                  animate={{opacity: 1, x: 0}}
+                  transition={{delay: index * 0.1}}
+                >
+                  {item}
+                </motion.span>
+              </Link>
             ))}
           </nav>
           <div className="flex items-center sm:space-x-4">
@@ -108,7 +111,7 @@ export const SiteHeader = () => {
                 Login
               </motion.button>
             </Link>
-            <Link className=" " href='https://app.bizstock.net/signup'>
+            <Link className=" " href='https://app.bizstock.net/register'>
               <motion.button
                 whileHover={{
                   scale: 1.05,
@@ -121,8 +124,6 @@ export const SiteHeader = () => {
               >
                 Get Started
               </motion.button>
-
-
             </Link>
           </div>
         </div>
@@ -144,9 +145,9 @@ const HeroSection = () => {
         >
           <motion.h1
             className="text-5xl md:text-6xl pb-2 leading-none font-black tracking-tighter bg-gradient-to-r from-blue-600 via-blue-800 to-red-600 bg-clip-text text-transparent"
-            initial={{opacity: 0, y: 20}}
-            animate={{opacity: 1, y: 0}}
-            transition={{duration: 0.8, delay: 0.2}}
+            initial={{y: -20, opacity: 0}}
+            whileInView={{y: 0, opacity: 1}}
+            transition={{delay: 0.1, duration: 0.5}}
           >
             Revolutionize Your Inventory Management
           </motion.h1>
@@ -275,6 +276,7 @@ const FeaturesSection = () => {
 
   return (
     <motion.section
+      id="features"
       className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80"
       initial="hidden"
       whileInView="visible"
@@ -445,7 +447,7 @@ const PricingSection = () => {
                   </motion.li>
                 ))}
               </motion.ul>
-              <Link href='https://app.bizstock.net'>
+              <Link href='#'>
                 <motion.button
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
@@ -673,8 +675,11 @@ const TestimonialsSection = () => {
     if (!isPaused) {
       scrollInterval = setInterval(() => {
         if (container) {
-          container.scrollLeft += 2; // Adjust speed by changing the increment
+          // @ts-ignore
+          container.scrollLeft += 1.5; // Adjust speed by changing the increment
+          // @ts-ignore
           if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+            // @ts-ignore
             container.scrollLeft = 0; // Reset to loop
           }
         }
@@ -719,31 +724,36 @@ const TestimonialsSection = () => {
               whileHover={{
                 scale: 1.05,
                 rotate: index % 1 === 0 ? 1 : -1,
-                transition: { duration: 0.2 }
+                transition: {duration: 0.2}
               }}
-              className="min-w-full md:min-w-[400px] p-4 sm:p-6 inline-block rounded-xl hover:border  hover:sm:shadow-lg hover:shadow-blue-500/50 hover:border-blue-500/50 transition-all duration-300 transform"
+              className="min-w-full md:min-w-[400px] p-4 sm:p-6 inline-block rounded-xl hover:border  hover:sm:shadow-lg hover:shadow-blue-500/50 hover:border-blue-500/50 transition-all duration-300 transform relative"
             >
               <motion.p
-                className="italic mb-4 text-gray-700 text-lg"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
+                className="font-light mb-4 text-gray-700 text-lg"
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
+                transition={{delay: 0.3, duration: 0.5}}
               >
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </motion.p>
               <div className="font-semibold">
+                <Quote
+                  className="absolute bottom-6 right-6 text-blue-500 opacity-20"
+                  size={100}
+                />
+
                 <motion.p
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
+                  initial={{x: -20, opacity: 0}}
+                  whileInView={{x: 0, opacity: 1}}
+                  transition={{delay: 0.4, duration: 0.5}}
                 >
                   {testimonial.name}
                 </motion.p>
                 <motion.p
                   className="text-gray-600 text-sm"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
+                  initial={{x: -20, opacity: 0}}
+                  whileInView={{x: 0, opacity: 1}}
+                  transition={{delay: 0.5, duration: 0.5}}
                 >
                   {testimonial.company}
                 </motion.p>
@@ -879,7 +889,7 @@ const FaqSection = () => {
                 whileHover={{scale: 1.005}}
                 whileTap={{scale: 0.995}}
               >
-                <h3 className="sm:text-lg text-base font-semibold pr-4">{faq.question}</h3>
+                <h3 className="sm:text-lg text-base font-semibold pr-4 leading-none">{faq.question}</h3>
                 <motion.div
                   animate={{rotate: openIndex === index ? 180 : 0}}
                   transition={{duration: 0.3}}
@@ -898,7 +908,7 @@ const FaqSection = () => {
                     className="overflow-hidden"
                   >
                     <motion.div
-                      className="px-6 pb-4 text-gray-600"
+                      className="px-6 pb-4 text-gray-600 leading-tight"
                       initial={{opacity: 0, y: 10}}
                       animate={{opacity: 1, y: 0}}
                       exit={{opacity: 0, y: -10}}
@@ -988,12 +998,11 @@ const SiteFooter = () => {
     Product: [
       { name: "Features", href: "#features" },
       { name: "Pricing", href: "#pricing" },
-      { name: "Integrations", href: "#integrations" },
+      { name: "FAQ", href: "#faq" },
     ],
     Company: [
       { name: "About Us", href: "/about" },
       { name: "Careers", href: "/careers" },
-      { name: "Press", href: "/press" },
     ],
     Resources: [
       { name: "Blog", href: "/blog" },
