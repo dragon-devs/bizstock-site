@@ -2,8 +2,7 @@
 
 import React, {useState} from 'react';
 import {Check, Link2, Mail, Share2} from 'lucide-react';
-import {FaXTwitter, FaFacebook, FaLinkedin, FaTelegram, FaWhatsapp} from "react-icons/fa6";
-import {MdEmail} from "react-icons/md";
+import {FaFacebook, FaLinkedin, FaTelegram, FaWhatsapp, FaXTwitter} from "react-icons/fa6";
 
 const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check out this awesome content!' }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +30,7 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
     {
       name: 'WhatsApp',
       icon: <FaWhatsapp className="w-5 h-5" />,
-      href: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`,
+      href: `https://wa.me/?text=${encodeURIComponent(url)}`,
       color: 'bg-green-500 hover:bg-green-600'
     },
     // {
@@ -49,7 +48,7 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
     {
       name: 'Telegram',
       icon: <FaTelegram className="w-5 h-5" />,
-      href: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+      href: `https://t.me/share/url?url=${encodeURIComponent(url)}}`,
       color: 'bg-blue-400 hover:bg-blue-500'
     },
     {
@@ -70,7 +69,7 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50">
+    <div className="fixed sm:bottom-8 bottom-4 right-4 sm:right-8 z-50">
       <div className="relative">
         {/* Main share button */}
         <button

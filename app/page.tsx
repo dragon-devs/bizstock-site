@@ -99,7 +99,7 @@ export const SiteHeader = () => {
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
         <div className="flex items-center justify-between">
-          <Link href="#" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/biz-stock-logo.svg"
               className="sm:h-12 sm:w-12 h-10 w-10 -mr-2"
