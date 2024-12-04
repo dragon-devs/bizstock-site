@@ -427,13 +427,17 @@ const PricingSection = () => {
                 y: -10,
                 transition: {duration: 0.2}
               }}
+              initial={{y: 20, opacity: 0}}
+              whileInView={{y: 0, opacity: 1}}
+              transition={{delay: 0.3, duration: 0.5}}
             >
               {plan.popular && (
                 <motion.span
                   className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-yellow-400 text-black text-sm rounded-full"
-                  initial={{scale: 0}}
                   animate={{scale: 1}}
-                  transition={{delay: 0.5}}
+                  initial={{scale: 0, opacity: 0}}
+                  whileInView={{scale: 1, opacity: 1}}
+                  transition={{delay: 0.4, duration: 0.5}}
                 >
                   Most Popular
                 </motion.span>
@@ -447,14 +451,19 @@ const PricingSection = () => {
               <motion.ul
                 className="space-y-4 mb-8"
                 variants={staggerContainer}
-                initial="initial"
                 animate="animate"
+                initial={{y: 20, opacity: 0}}
+                whileInView={{y: 0, opacity: 1}}
+                transition={{delay: 0.4, duration: 0.5}}
               >
                 {plan.features.map((feature, i) => (
                   <motion.li
                     key={i}
                     className="flex items-center"
                     variants={fadeInUp}
+                    initial={{y: 20, opacity: 0}}
+                    whileInView={{y: 0, opacity: 1}}
+                    transition={{delay: 0.4, duration: 0.5}}
                   >
                     <CheckCircle2 className={`w-5 h-5 mr-2 ${plan.popular ? 'text-blue-100' : 'text-blue-600'}`}/>
                     {feature}
@@ -902,6 +911,9 @@ const FaqSection = () => {
                 className="w-full text-left px-6 py-4 flex justify-between items-center"
                 whileHover={{scale: 1.005}}
                 whileTap={{scale: 0.995}}
+                initial={{y: 20, opacity: 0}}
+                whileInView={{y: 0, opacity: 1}}
+                transition={{delay: 0.3, duration: 0.5}}
               >
                 <p className="sm:text-lg text-base font-semibold pr-4 leading-none">{faq.question}</p>
                 <motion.div
