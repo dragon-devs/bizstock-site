@@ -3,12 +3,14 @@ import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
 import { SiteHeader } from "@/app/page";
+import SocialShareWidget from "@/app/components/social-share-widgets";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -17,7 +19,31 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "BizStock - Inventory Management System",
-  description: "An Inventory management system for all size of businesses.",
+  description: "An inventory management system for businesses of all sizes.",
+  metadataBase: new URL('https://www.bizstock.net'), // Replace with your actual domain
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.bizstock.net',
+    title: 'BizStock - Inventory Management System',
+    description: 'An inventory management system for businesses of all sizes.',
+    siteName: 'BizStock',
+    images: [
+      {
+        url: '/bizstock-reports.png', // Add your OG image
+        width: 1200,
+        height: 630,
+        alt: 'BizStock - Inventory Management System',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BizStock - Inventory Management System',
+    description: 'An inventory management system for businesses of all sizes.',
+    images: ['/bizstock-reports.png'],
+    creator: '@dragondevs_', // Replace with your Twitter handle
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
@@ -30,30 +56,50 @@ export const metadata: Metadata = {
       url: "/apple-touch-icon-precomposed.png",
     },
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  // verification: {
+  //   google: 'your-google-site-verification', // Add your Google verification code
+  //   yandex: 'your-yandex-verification', // Optional
+  // },
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="/app/icon.ico"
-          sizes="48x48"
-        />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
-      >
-        <SiteHeader />
-        {children}
-      </body>
+    <head>
+      <link
+        rel="icon"
+        type="image/x-icon"
+        href="/app/icon.ico"
+        sizes="48x48"
+      />
+      <link rel="apple-touch-icon" href="/apple-icon.png" />
+      <link rel="canonical" href="https://www.bizstock.net" />
+    </head>
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+    >
+    <SiteHeader />
+    {children}
+    <SocialShareWidget
+      url="https://www.bizstock.net"
+      title="BizStock - Inventory Management System"
+    />
+    </body>
     </html>
   );
 }
