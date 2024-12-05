@@ -9,4 +9,4 @@ const PricingPage = () => {
   );
 };
 
-export default AboutUs;
+export default PricingPage;
