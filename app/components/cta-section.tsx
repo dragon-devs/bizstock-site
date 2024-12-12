@@ -60,7 +60,7 @@ export const CtaSection = () => {
               whileHover="hover"
               whileTap="tap"
             >
-              Download BizStock App
+              Download Bizstock.exe App
             </motion.button>
           </Link>
         </motion.div>
