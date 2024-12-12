@@ -16,7 +16,7 @@ export const FaqSection = () => {
     },
     {
       question: "Do you offer a free trial?",
-      answer: "Yes, we offer a 30-day free trial with full access to all features. No payment method required to start your trial."
+      answer: "Yes, we offer a 14-day free trial with full access to all features. No payment method required to start your trial."
     },
     {
       question: "Can I customize the system to fit my business needs?",

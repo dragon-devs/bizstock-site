@@ -49,7 +49,7 @@ export const CtaSection = () => {
               whileHover="hover"
               whileTap="tap"
             >
-              Start <span className="font-bold">30-Days</span> Free Trial
+              Start <span className="font-bold">14-Days</span> Free Trial
             </motion.button>
           </Link>
           <Link className="w-full sm:w-fit"
