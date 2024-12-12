@@ -84,16 +84,16 @@ export default function RootLayout({
       <link
         rel="icon"
         type="image/x-icon"
-        href="/app/icon.ico"
+        href="/favicon.ico"
         sizes="48x48"
       />
-      <link rel="apple-touch-icon" href="/apple-icon.png" />
-      <link rel="canonical" href="https://www.bizstock.net" />
+      <link rel="apple-touch-icon" href="/apple-icon.png"/>
+      <link rel="canonical" href="https://www.bizstock.net"/>
     </head>
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
     >
-    <SiteHeader />
+    <SiteHeader/>
     {children}
     <SocialShareWidget
       url="https://www.bizstock.net"

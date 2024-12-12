@@ -113,11 +113,11 @@ export const FaqSection = () => {
           className="space-y-4"
           variants={containerVariants}
         >
-          {faqs.map((faq, index) => (
+          {faqs.map((faq, index : any) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="rounded-lg "
+              className="rounded-lg"
             >
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
