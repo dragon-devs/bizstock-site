@@ -79,10 +79,13 @@ const SupportPage = () => {
               className="relative overflow-hidden rounded-2xl bg-blue-50 p-8 hover:bg-blue-100 transition-colors"
               variants={fadeInUp}
             >
-              <MessageCircle className="h-8 w-8 text-blue-600 mb-4" />
+              <MessageCircle className="h-8 w-8 text-blue-600 mb-4"/>
               <p className="text-xl font-semibold text-gray-900">Live Chat Support</p>
               <p className="mt-2 text-gray-600">Get real-time assistance from our expert support team</p>
-              <button className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-700">
+              <button
+                className="mt-4 inline-flex items-center text-blue-600 hover:text-blue-700"
+                onClick={() => window.open('https://wa.me/923466955928', '_blank')}
+              >
                 Start Chat
                 <span className="ml-2">→</span>
               </button>
@@ -92,10 +95,13 @@ const SupportPage = () => {
               className="relative overflow-hidden rounded-2xl bg-green-50 p-8 hover:bg-green-100 transition-colors"
               variants={fadeInUp}
             >
-              <Phone className="h-8 w-8 text-green-600 mb-4" />
+              <Phone className="h-8 w-8 text-green-600 mb-4"/>
               <p className="text-xl font-semibold text-gray-900">Phone Support</p>
               <p className="mt-2 text-gray-600">Speak directly with our dedicated support specialists</p>
-              <button className="mt-4 inline-flex items-center text-green-600 hover:text-green-700">
+              <button
+                className="mt-4 inline-flex items-center text-green-600 hover:text-green-700"
+                onClick={() => window.open('tel:+923466955928')}
+              >
                 Call Now
                 <span className="ml-2">→</span>
               </button>
@@ -105,10 +111,13 @@ const SupportPage = () => {
               className="relative overflow-hidden rounded-2xl bg-purple-50 p-8 hover:bg-purple-100 transition-colors"
               variants={fadeInUp}
             >
-              <Mail className="h-8 w-8 text-purple-600 mb-4" />
+              <Mail className="h-8 w-8 text-purple-600 mb-4"/>
               <p className="text-xl font-semibold text-gray-900">Email Support</p>
               <p className="mt-2 text-gray-600">Get detailed responses to complex inquiries</p>
-              <button className="mt-4 inline-flex items-center text-purple-600 hover:text-purple-700">
+              <button
+                className="mt-4 inline-flex items-center text-purple-600 hover:text-purple-700"
+                onClick={() => window.open('mailto:dragonfourtyseven@gmail.com')}
+              >
                 Send Email
                 <span className="ml-2">→</span>
               </button>
@@ -123,7 +132,7 @@ const SupportPage = () => {
         variants={stagger}
         initial="initial"
         whileInView="whileInView"
-        viewport={{ once: true }}
+        viewport={{once: true}}
       >
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -145,7 +154,7 @@ const SupportPage = () => {
                 className="bg-white rounded-xl p-8 hover:shadow-xl transition-shadow"
                 variants={fadeInUp}
               >
-                <resource.icon className="h-8 w-8 text-blue-600 mb-4" />
+                <resource.icon className="h-8 w-8 text-blue-600 mb-4"/>
                 <p className="text-xl font-semibold text-gray-900">{resource.title}</p>
                 <p className="mt-2 text-gray-600">{resource.description}</p>
                 <button className="mt-4 text-blue-600 hover:text-blue-700">
