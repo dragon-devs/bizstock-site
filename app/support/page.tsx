@@ -1,4 +1,4 @@
-0'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -69,9 +69,9 @@ const SupportPage = () => {
       {/* Quick Actions */}
       <motion.div
         className="py-16 px-6 lg:px-8"
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -142,7 +142,7 @@ const SupportPage = () => {
             {resources.map((resource, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-8 hover:shadow-xl transition-shadow"
                 variants={fadeInUp}
               >
                 <resource.icon className="h-8 w-8 text-blue-600 mb-4" />
