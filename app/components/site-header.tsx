@@ -51,7 +51,7 @@ export const SiteHeader = () => {
             <SiteTagsList tags={siteTags} />
           </nav>
           <div className="flex items-center sm:space-x-4">
-            <Link className="w-full sm:w-fit" href="https://app.bizstock.net/signin">
+            <Link className="w-full sm:w-fit" href="https://app.bizstock.net/auth/signin">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -60,7 +60,7 @@ export const SiteHeader = () => {
                 Login
               </motion.button>
             </Link>
-            <Link href="https://app.bizstock.net/register">
+            <Link href="https://app.bizstock.net/auth/register">
               <motion.button
                 whileHover={{
                   scale: 1.05,

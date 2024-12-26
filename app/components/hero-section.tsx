@@ -39,7 +39,7 @@ export const HeroSection = () => {
             initial="initial"
             animate="animate"
           >
-            <Link className="w-full sm:w-fit" href='https://app.bizstock.net/signup'>
+            <Link className="w-full sm:w-fit" href='https://app.bizstock.net/auth/register'>
               <motion.button
                 className="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
                 whileHover={{scale: 1.05}}
@@ -77,7 +77,14 @@ export const HeroSection = () => {
             <Image
               src="/bizstock-reports.png"
               alt="BizStock Dashboard"
-              className="w-full object-cover"
+              className="w-full sm:block hidden object-cover"
+              width={2000}
+              height={2000}
+            />
+            <Image
+              src="/bizstock-mobile.png"
+              alt="BizStock Dashboard"
+              className="w-full sm:hidden block object-cover"
               width={2000}
               height={2000}
             />
