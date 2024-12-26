@@ -33,12 +33,12 @@ const SupportPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <motion.div
-        className="relative overflow-hidden bg-white py-24"
+        className="relative overflow-hidden bg-white py-16 md:py-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <motion.div
             className="text-center"
             variants={fadeInUp}
@@ -68,13 +68,13 @@ const SupportPage = () => {
 
       {/* Quick Actions */}
       <motion.div
-        className="py-16 px-6 lg:px-8"
+        className="py-16 px-4 lg:px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:gap-8 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <motion.div
               className="relative overflow-hidden rounded-2xl bg-blue-50 p-8 hover:bg-blue-100 transition-colors"
               variants={fadeInUp}
@@ -128,7 +128,7 @@ const SupportPage = () => {
 
       {/* Resources Section */}
       <motion.div
-        className="bg-gray-50 py-16 px-6 lg:px-8"
+        className="bg-gray-50 py-16 px-4 lg:px-8"
         variants={stagger}
         initial="initial"
         whileInView="whileInView"
@@ -147,7 +147,7 @@ const SupportPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 md:gap-8 gap-4 md:grid-cols-3">
             {resources.map((resource, index) => (
               <motion.div
                 key={index}
@@ -168,12 +168,12 @@ const SupportPage = () => {
 
       {/* Support Hours */}
       <motion.div
-        className="py-16 px-6 lg:px-8"
+        className="py-16 px-4 md:bg-transparent bg-blue-600 lg:px-8"
         {...fadeInUp}
       >
-        <div className="mx-auto max-w-7xl">
-          <div className="rounded-2xl bg-blue-600 p-8 md:p-12 lg:p-16">
-            <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="mx-auto  max-w-7xl">
+          <div className="rounded-2xl md:bg-blue-600 md:p-12 lg:p-16">
+            <div className="md:flex md:flex-row items-center  md:justify-between">
               <div className="text-white mb-8 md:mb-0">
                 <h3 className="text-2xl font-bold tracking-tighter sm:text-3xl">24/7 Support Available</h3>
                 <p className="mt-2 text-blue-100">
