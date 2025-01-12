@@ -18,7 +18,7 @@ export default function Home() {
           <div
             className="absolute -z-10 transition-all -top-5 sm:-left-20 right-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"/>
           <div
-            className="absolute -z-10 transition-all -top-5 right-0 w-72 h-72 bg-rose-500/20 rounded-full blur-3xl"/>
+            className="absolute -z-10 transition-all -top-5 right-0 w-72 h-72 bg-green-500/20 rounded-full blur-3xl"/>
           <HeroSection/>
           <FeaturesSection/>
           <PricingSection/>

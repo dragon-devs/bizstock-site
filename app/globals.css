@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: var(--font-geist-sans), 'Noto Nastaliq Urdu', sans-serif;
+  font-family: "inter", 'Noto Nastaliq Urdu', sans-serif;
 }
 
 code, pre {

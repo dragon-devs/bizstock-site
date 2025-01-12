@@ -10,9 +10,9 @@ export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const siteTags = [
-    { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Pricing', href: '/#pricing' },
+    { name: 'FAQ', href: '/#faq' },
   ];
 
   useEffect(() => {
@@ -38,16 +38,16 @@ export const SiteHeader = () => {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/biz-stock-logo.svg"
-              className="sm:h-12 sm:w-12 h-10 w-10 -mr-2"
+              className="w-8 h-8 -mr-2"
               alt="Biz Stock"
               width={100}
               height={100}
             />
-            <span className="text-base tracking-tighter font-bold sm:text-2xl bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
+            <span className="text-base tracking-tighter font-bold bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
               BizStock
             </span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex text-sm items-center space-x-8">
             <SiteTagsList tags={siteTags} />
           </nav>
           <div className="flex items-center sm:space-x-4">
@@ -69,7 +69,7 @@ export const SiteHeader = () => {
                 whileTap={{ scale: 0.95 }}
                 initial={{ backgroundPosition: '0% 0%' }}
                 animate={{ backgroundPosition: '50% 50%' }}
-                className="w-28 py-2 text-sm text-white rounded-lg bg-gradient-to-r from-blue-600 to-rose-600 bg-[length:200%_200%] transition-all"
+                className="w-28 py-2 text-sm text-white rounded-full bg-gradient-to-r from-blue-600 to-green-600 bg-[length:200%_200%] transition-all"
               >
                 Get Started
               </motion.button>

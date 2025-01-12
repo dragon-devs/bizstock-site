@@ -127,7 +127,7 @@ export const PricingSection = () => {
                 <motion.button
                   whileHover={{scale: 1.05}}
                   whileTap={{scale: 0.95}}
-                  className={`w-full px-4 py-2 rounded-lg transition-colors ${
+                  className={`w-full px-4 py-2 rounded-full transition-colors ${
                     plan.popular
                       ? 'bg-white text-blue-600 hover:bg-blue-50'
                       : 'bg-blue-600 text-white hover:bg-blue-700'

@@ -232,7 +232,7 @@ export const CookiePolicy = () => {
         className="text-center mb-12"
         variants={itemVariants}
       >
-        <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
           Cookie Policy
         </h1>
         <p className="text-gray-600 ">

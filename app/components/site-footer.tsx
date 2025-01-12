@@ -8,9 +8,9 @@ import {fadeInUp, staggerChildren} from "@/app/components/animate";
 export const SiteFooter = () => {
   const footerLinks = {
     Product: [
-      {name: "Features", href: "/features"},
-      {name: "Pricing", href: "/pricing"},
-      {name: "FAQ", href: "/faq"},
+      {name: "Features", href: "/#features"},
+      {name: "Pricing", href: "/#pricing"},
+      {name: "FAQ", href: "/#faq"},
     ],
     Company: [
       {name: "About Us", href: "/about"},
@@ -45,12 +45,12 @@ export const SiteFooter = () => {
             <Link href="#header" className="flex items-center -ml-2 mb-4">
               <Image
                 src="/biz-stock-logo.svg"
-                className="sm:h-12 sm:w-12 h-10 w-10 mr-4 filter invert"
+                className="h-8 w-8 mr-4 filter invert"
                 alt="Biz Stock"
                 width={100}
                 height={100}
               />
-              <div className="text-base sm:text-2xl -ml-4 font-bold text-white tracking-tighter">
+              <div className="text-base -ml-4 font-semibold text-white tracking-tighter">
                 BizStock
               </div>
             </Link>

@@ -11,7 +11,7 @@ export const CtaSection = () => {
 
   return (
     <motion.section
-      className="py-20 w-[100vw] left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]  bg-gradient-to-r from-blue-600 to-rose-800 text-white overflow-hidden relative"
+      className="py-20 w-[100vw] left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]  bg-gradient-to-r from-blue-600 to-green-500 text-white overflow-hidden relative"
       initial="initial"
       whileInView="animate"
       viewport={{once: true, margin: "-100px"}}
@@ -44,7 +44,7 @@ export const CtaSection = () => {
         >
           <Link className="w-full sm:w-fit" href="https://app.bizstock.net">
             <motion.button
-              className="px-6 w-full py-2 bg-white text-blue-600 rounded-lg"
+              className="px-6 w-full py-2 bg-white text-blue-600 rounded-full"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -55,7 +55,7 @@ export const CtaSection = () => {
           <Link className="w-full sm:w-fit"
                 href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
             <motion.button
-              className="px-6 w-full py-2 border border-white text-white rounded-lg"
+              className="px-6 w-full py-2 border border-white text-white rounded-full"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"

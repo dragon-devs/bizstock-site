@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'BizStock',
     images: [
       {
-        url: '/bizstock-reports.png', // Add your OG image
+        url: '/bizstock-dashboard.png', // Add your OG image
         width: 1200,
         height: 630,
         alt: 'BizStock - Inventory Management System',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BizStock - Inventory Management System',
     description: 'An inventory management system for businesses of all sizes.',
-    images: ['/bizstock-reports.png'],
+    images: ['/bizstock-dashboard.png'],
     creator: '@dragondevs_', // Replace with your Twitter handle
   },
   icons: {

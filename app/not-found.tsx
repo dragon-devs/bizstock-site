@@ -16,7 +16,7 @@ export default function NotFound(
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className=" mx-auto text-center relative">
         {/* Animated glitch effect background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-rose-500/10 animate-pulse rounded-lg blur-2xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 animate-pulse rounded-lg blur-2xl" />
 
         {/* Main content container */}
         <div className="relative ">
