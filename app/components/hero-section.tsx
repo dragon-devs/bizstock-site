@@ -66,14 +66,13 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="absolute rounded-2xl inset-0 sm:bg-gradient-to-b from-white/20 via-transparent to-white/20 z-10" />
           <motion.div
-            className="sm:rounded-2xl rounded-xl overflow-hidden shadow-2xl border border-b-gray-100"
+            className="sm:rounded-2xl rounded-xl overflow-hidden"
             whileHover={{ y: -10 }}
             transition={{ duration: 0.3 }}
           >
             <Image
-              src="/bizstock-dashboard.png"
+              src="/bizstock-background.png"
               alt="BizStock POS & Inventory Dashboard"
               className="w-full sm:block hidden object-cover"
               width={2000}
@@ -81,7 +80,7 @@ export const HeroSection = () => {
               priority
             />
             <Image
-              src="/bizstock-mobile-dashboard.png"
+              src="/bizstock-mobile-view-light.png"
               alt="BizStock Mobile Dashboard"
               className="w-full sm:hidden block object-cover"
               width={1000}

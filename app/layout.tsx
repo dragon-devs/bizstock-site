@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
 import SocialShareWidget from "@/app/components/social-share-widgets";
-import { SiteHeader } from "@/app/components/site-header";
+import {SiteHeader} from "@/app/components/site-header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         height: 630,
         alt: "BizStock - Desktop POS Interface",
       },
-    ],,
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -92,8 +92,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "48x48" },
-      { url: "/icon-512x512.png", sizes: "512x512" },
+      {url: "/favicon.ico", sizes: "48x48"},
+      {url: "/icon-512x512.png", sizes: "512x512"},
     ],
     shortcut: "/icon-192x192.png",
     apple: "/icon-512x512.png",
@@ -155,15 +155,15 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-      <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
-      <link rel="apple-touch-icon" href="/apple-icon.png" />
-      <link rel="canonical" href="https://www.bizstock.net" />
-      <meta name="theme-color" content="#0f172a" />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48"/>
+      <link rel="apple-touch-icon" href="/apple-icon.png"/>
+      <link rel="canonical" href="https://www.bizstock.net"/>
+      <meta name="theme-color" content="#0f172a"/>
     </head>
     <body
       className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
     >
-    <SiteHeader />
+    <SiteHeader/>
     {children}
     <SocialShareWidget
       url="https://www.bizstock.net"
