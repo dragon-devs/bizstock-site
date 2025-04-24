@@ -21,7 +21,7 @@ export default function NotFound(
         {/* Main content container */}
         <div className="relative ">
           {/* Animated 404 text */}
-          <h1 className="text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-rose-500 animate-gradient mb-4">
+          <h1 className="text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500 animate-gradient mb-4">
             404
           </h1>
 
@@ -45,7 +45,7 @@ export default function NotFound(
 
             <button
               onClick={() => router.push('/')}
-              className="px-4 flex items-center rounded-md py-2 text-white bg-gradient-to-r from-blue-500 to-rose-500 hover:from-blue-500 hover:to-rose-600"
+              className="px-4 flex items-center rounded-md py-2 text-white bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-500 hover:to-green-600"
             >
               <Home className="mr-2 h-4 w-4" />
               Return Home
@@ -54,7 +54,7 @@ export default function NotFound(
 
           {/* Decorative elements */}
           <div className="absolute -top-20 sm:-left-20 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 sm:-right-20 right-0 w-40 h-40 bg-rose-500/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 sm:-right-20 right-0 w-40 h-40 bg-green-500/20 rounded-full blur-3xl" />
         </div>
       </div>
     </div>
