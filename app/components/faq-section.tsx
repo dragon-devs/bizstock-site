@@ -4,50 +4,65 @@ import {ChevronDown} from "lucide-react";
 
 export const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
+  
   const faqs = [
-    {
-      question: "How easy is it to migrate from my current system?",
-      answer: "We provide comprehensive migration tools and dedicated support to ensure a smooth transition from your existing system. Our team will help you import your data and train your staff."
-    },
-    {
-      question: "Is my data secure with BizStock?",
-      answer: "Absolutely. We use bank-grade encryption and follow industry best practices for data security. Your data is regularly backed up and stored in secure, redundant locations."
-    },
     {
       question: "Do you offer a free trial?",
       answer: "Yes, we offer a 14-day free trial with full access to all features. No payment method required to start your trial."
     },
     {
-      question: "Can I customize the system to fit my business needs?",
-      answer: "Yes, BizStock is highly customizable. You can configure modules, reports, and workflows to match your unique business requirements."
+      question: "Can I manage inventory with barcodes and variants?",
+      answer:
+        "Yes! BizStock supports product variants (like size or color) and barcodes. You can scan products using a barcode scanner or your mobile camera for quick access and updates."
     },
     {
-      question: "What kind of support do you provide?",
-      answer: "We offer 24/7 customer support through chat, email, and phone. Our knowledge base and video tutorials are also available to help you navigate the platform."
+      question: "Does BizStock support real-time updates?",
+      answer:
+        "Absolutely. From stock levels to dashboard widgets and notifications, BizStock keeps everything in sync with real-time updates — no need to refresh the page."
     },
     {
-      question: "Does BizStock integrate with other tools?",
-      answer: "Yes, BizStock integrates seamlessly with a variety of tools, including accounting software, e-commerce platforms, and payment gateways."
+      question: "Can I use BizStock as a complete POS system?",
+      answer:
+        "Yes. BizStock includes a full-featured Point of Sale (POS) system with invoice generation, discount support, multiple payment types, and customer linking — ideal for both desktop and tablet use."
     },
     {
-      question: "Is BizStock suitable for small businesses?",
-      answer: "Definitely. BizStock is designed to be scalable, making it suitable for small businesses, growing companies, and large enterprises alike."
+      question: "Can I manage inventory across multiple locations?",
+      answer:
+        "Yes. BizStock is designed to handle inventory across multiple warehouses or branches. You can track stock movement, transfers, and availability per location."
     },
     {
-      question: "Can I access BizStock on mobile devices?",
-      answer: "Yes, BizStock is fully responsive and can be accessed on any device, including smartphones and tablets, for on-the-go convenience."
+      question: "How does customer and vendor management work?",
+      answer:
+        "You can easily manage vendors and customers with complete profiles, ledgers, regions, and contact info. The system also supports categorization and smart filtering for easier access."
     },
     {
-      question: "How often do you release updates or new features?",
-      answer: "We regularly release updates based on user feedback and industry trends. All updates are automatically applied at no additional cost."
+      question: "Can I export data from BizStock?",
+      answer:
+        "Yes. Reports, ledgers, invoices, and stock data can be exported in PDF, CSV, or TXT formats for backups, audits, or sharing."
     },
     {
-      question: "What happens if I decide to stop using BizStock?",
-      answer: "If you decide to discontinue, you can export all your data in a compatible format. We ensure a hassle-free exit process."
+      question: "Is BizStock mobile-friendly?",
+      answer:
+        "Yes. The system is fully responsive and works seamlessly on phones, tablets, and desktops. The mobile interface is optimized for ease of use on smaller screens."
+    },
+    {
+      question: "Do you support data backups and security?",
+      answer:
+        "Yes. We ensure your data is backed up regularly with secure, encrypted storage. We also follow industry best practices for security and privacy."
+    },
+    {
+      question: "Can I track business expenses and financials?",
+      answer:
+        "BizStock includes modules for expense tracking, customer/vendor ledgers, and finance reports so you can keep an eye on cash flow and profit."
+    },
+    {
+      question: "Do you offer support and onboarding?",
+      answer:
+        "Yes! We offer onboarding sessions, and fast customer support to help you get the most out of BizStock."
     }
   ];
 
+  
   const containerVariants = {
     hidden: {opacity: 0, y: 20},
     visible: {

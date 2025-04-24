@@ -1,7 +1,9 @@
-import {BarChart2, Layers, Link2, TrendingDown} from "lucide-react";
-import {motion} from "framer-motion";
-import {PolicySection} from "@/app/components/terms";
-import React from "react";
+'use client';
+
+import {Barcode, BarChart2, Layers, Link2, TrendingUp, Users, ReceiptText, Zap} from 'lucide-react';
+import {motion} from 'framer-motion';
+import {PolicySection} from '@/app/components/terms';
+import React from 'react';
 
 export const SEOContentSection = () => {
   const containerVariants = {
@@ -14,7 +16,7 @@ export const SEOContentSection = () => {
       }
     }
   };
-
+  
   const itemVariants = {
     hidden: {opacity: 0, y: 20},
     visible: {
@@ -25,33 +27,58 @@ export const SEOContentSection = () => {
       }
     }
   };
-
+  
   const seoContentItems = [
     {
       icon: Layers,
       iconColor: "text-blue-600 bg-blue-100",
-      title: "Comprehensive Inventory Tracking",
-      description: "Gain total visibility with real-time stock level monitoring, automatic low stock alerts, precise location tracking across multiple warehouses, batch and serial number tracking, and advanced product variant management."
+      title: "Full POS Integration",
+      description: "Blazing fast POS with real-time inventory sync, barcode scanner (manual & camera), sales receipts (POS-size & full page), WhatsApp & SMS invoice sharing, offline feel, and mobile responsiveness."
     },
     {
-      icon: BarChart2,
+      icon: Barcode,
+      iconColor: "text-purple-600 bg-purple-100",
+      title: "Smart Inventory & Barcode System",
+      description: "Manage multiple product variants, auto-generate barcodes, scan items, and track stock levels in real time with alert systems and batch-wise organization."
+    },
+    {
+      icon: Users,
       iconColor: "text-green-600 bg-green-100",
-      title: "Advanced Reporting and Analytics",
-      description: "Transform data into actionable insights with customizable dashboards, inventory turnover rate analysis, profit margin calculations, seasonal trend identification, and comprehensive financial reporting."
+      title: "Customers, Regions & Ledgers",
+      description: "Handle customers with region grouping, auto-updated ledgers, full invoice history (paid, partial, pending), and printable/shareable ledger statements."
+    },
+    {
+      icon: ReceiptText,
+      iconColor: "text-yellow-600 bg-yellow-100",
+      title: "Invoices & Real-Time Dashboard",
+      description: "Generate detailed sales invoices, track statuses, print/share instantly, and view live analytics including stock movement, sales trends, and more."
     },
     {
       icon: Link2,
-      iconColor: "text-purple-600 bg-purple-100",
-      title: "Multi-Channel Synchronization",
-      description: "Eliminate inventory discrepancies with seamless integration across e-commerce platforms, point of sale systems, and automatic stock updates. Prevent overselling and maintain real-time accuracy across all sales channels."
+      iconColor: "text-teal-600 bg-teal-100",
+      title: "Multi-Module Ecosystem",
+      description: "Everything your business needs—products, vendors, customers, expenses, invoices, reporting—all deeply connected in one streamlined system."
     },
     {
-      icon: TrendingDown,
+      icon: BarChart2,
       iconColor: "text-red-600 bg-red-100",
-      title: "Cost Optimization Tools",
-      description: "Maximize efficiency with intelligent reorder point calculations, stock level recommendations, carrying cost analysis, supplier performance tracking, and identification of slow-moving inventory."
+      title: "Advanced Business Reports",
+      description: "Get comprehensive financial reports, export as PDF, CSV, or TXT, and gain real insights for smart decision-making with printable formats ready."
+    },
+    {
+      icon: TrendingUp,
+      iconColor: "text-pink-600 bg-pink-100",
+      title: "Expense & Profit Tracking",
+      description: "Track business expenses with receipts, monitor profits, and optimize spending. Print your reports for accounting or review anytime."
+    },
+    {
+      icon: Zap,
+      iconColor: "text-indigo-600 bg-indigo-100",
+      title: "Lightning Fast Experience",
+      description: "Powered by Next.js and Zustand for seamless state management. Feels like an offline app—fast, fluid, and reliable for daily use."
     }
   ];
+  
   return (
     <motion.section
       className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-white"
@@ -65,15 +92,20 @@ export const SEOContentSection = () => {
           className="text-4xl font-bold mb-12 text-center tracking-tighter"
           variants={itemVariants}
         >
-          Why BizStock is the Ultimate Inventory Management Solution
+          Why BizStock is Built for Real Business Needs
         </motion.h2>
         <motion.div
           className="grid md:grid-cols-2 sm:gap-6 gap-4"
           variants={containerVariants}
         >
           {seoContentItems.map((item, index) => (
-            <PolicySection key={index} className='border' iconClass={item.iconColor} title={item.title}
-                           icon={item.icon}>
+            <PolicySection
+              key={index}
+              className="border"
+              iconClass={item.iconColor}
+              title={item.title}
+              icon={item.icon}
+            >
               <p>{item.description}</p>
             </PolicySection>
           ))}

@@ -24,99 +24,100 @@ export const TestimonialsSection = () => {
       }
     }
   };
-
+  
   const testimonials = [
     {
-      quote: "BizStock revolutionized our inventory management. We've reduced costs by 30%!",
+      quote: "BizStock's POS system is lightning fast. Generating sales receipts and sharing invoices on WhatsApp has made checkout seamless!",
       name: "Sarah Johnson",
       company: "RetailPro Solutions"
     },
     {
-      quote: "The AI predictions are incredibly accurate. We never run out of stock anymore.",
+      quote: "We love how easy it is to scan and manage product barcodes. Inventory tracking is accurate and reliable now.",
       name: "Mike Thompson",
       company: "Global Traders Inc."
     },
     {
-      quote: "As a small business, BizStock has been a game-changer. The inventory tracking is so intuitive and saves us hours of manual work.",
+      quote: "The multi variant inventory and barcode generation helped us standardize our products across branches effortlessly.",
       name: "Emily Rodriguez",
       company: "Coastal Craft Supplies"
     },
     {
-      quote: "We operate across multiple warehouses, and BizStock's multi-location inventory management has streamlined our entire supply chain.",
+      quote: "BizStock’s customer ledger system keeps all payment histories organized. It’s perfect for tracking dues in real time.",
       name: "David Chen",
       company: "Nationwide Distribution Partners"
     },
     {
-      quote: "The real-time reporting and analytics have helped us make more informed purchasing decisions. Truly a must-have for any serious business.",
+      quote: "The real time dashboard gives us instant insights into sales and stock flow. It’s a game changer for daily decision making.",
       name: "Lisa Patel",
       company: "Tech Innovations Retail"
     },
     {
-      quote: "BizStock's integration capabilities mean we can connect our e-commerce, point of sale, and inventory systems seamlessly. No more manual data entry!",
+      quote: "Managing invoices has never been easier. I can print, share, and even track due invoices in one place!",
       name: "Robert Williams",
       company: "Online Marketplace Solutions"
     },
     {
-      quote: "We've seen a 20% increase in efficiency since implementing BizStock. It’s the best inventory system we've ever used.",
+      quote: "With BizStock's region based customer grouping, we can now filter ledgers and invoices by location—so helpful!",
       name: "Jessica Lee",
       company: "Smart Logistics Co."
     },
     {
-      quote: "BizStock’s user-friendly interface made onboarding effortless. Our team got up to speed in no time.",
+      quote: "I track my business expenses and profit all in one app. The reports are clean and export ready. Fantastic for accounting!",
       name: "Carlos Garcia",
       company: "Metro Supplies"
     },
     {
-      quote: "The customer support is phenomenal! They guided us through every step of the implementation process.",
+      quote: "BizStock has completely streamlined our purchasing and reporting. Exporting to PDF or Excel saves us hours.",
       name: "Priya Desai",
       company: "Elegant Decor Ltd."
     },
     {
-      quote: "The customizable dashboards and reports let us track what matters most to our business. It’s a game-changer.",
+      quote: "All our modules—inventory, customers, vendors, expenses—are connected. It's the only tool we need to run the business.",
       name: "Alex Carter",
       company: "Green Earth Enterprises"
     },
     {
-      quote: "With BizStock, we've minimized overstocking and stockouts, saving us thousands of dollars annually.",
+      quote: "Switching to BizStock saved us from costly stockouts. The real time tracking and alerts are super accurate.",
       name: "Sophia Nguyen",
       company: "Urban Outfitters Supply"
     },
     {
-      quote: "I can now manage my entire inventory from my phone. The mobile experience is top-notch!",
+      quote: "Our team manages the full POS system on their phones. The mobile experience is smooth and responsive.",
       name: "Ethan Brooks",
       company: "Mobile Marketplaces"
     },
     {
-      quote: "BizStock has completely transformed how we handle seasonal inventory surges. It's perfect for scaling businesses.",
+      quote: "BizStock made our seasonal stock planning much easier. We prepare ahead thanks to inventory analytics.",
       name: "Emma Davis",
       company: "Holiday Retailers"
     },
     {
-      quote: "Their subscription tiers made it affordable for us to start small and scale up as we grew. Highly recommend it!",
+      quote: "We started on the smallest subscription and scaled as we grew. Flexible pricing made a big difference.",
       name: "Olivia White",
       company: "Startup Supplies"
     },
     {
-      quote: "The audit trail feature has made compliance and inventory audits so much easier for our business.",
+      quote: "Audits are stress free now. The system logs every transaction clearly with full traceability.",
       name: "Noah Harris",
       company: "Compliant Logistics LLC"
     },
     {
-      quote: "BizStock's forecasting tools have given us a clear edge over our competitors. Our stock planning is now flawless.",
+      quote: "The sales forecasting module helps us plan smarter. Our inventory turnover has never been this optimized.",
       name: "Mia King",
       company: "Precision Tech Distributors"
     },
     {
-      quote: "I love how it integrates perfectly with our accounting software. Inventory management and accounting are now in sync.",
+      quote: "Syncing with our accounting software was flawless. It bridged the gap between inventory and finance.",
       name: "Liam Scott",
       company: "Streamline Enterprises"
     },
     {
-      quote: "The barcode scanning feature has significantly sped up our warehouse operations. A fantastic tool!",
+      quote: "The barcode scanner sped up our stock intake by 2x. It’s now our favorite tool during inventory checks.",
       name: "Grace Turner",
       company: "Swift Warehousing Solutions"
     }
   ];
+  
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
 
