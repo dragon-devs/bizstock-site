@@ -32,47 +32,12 @@ export const metadata: Metadata = {
     siteName: "BizStock",
     images: [
       {
-        url: "/bizstock-dashboard-light.png",
-        width: 1200,
-        height: 630,
-        alt: "BizStock - POS & Inventory Management Dashboard",
+        url: "/bizstock-post.png",
+        width: 1000,
+        height: 1600,
+        alt: "BizStock - POS & Inventory Management Details",
       },
-      {
-        url: "/bizstock-mobile-view-dark.png",
-        width: 1200,
-        height: 630,
-        alt: "BizStock - Inventory Management Dashboard",
-      },
-      {
-        url: "/bizstock-dashboard-dark.png",
-        width: 1200,
-        height: 630,
-        alt: "BizStock - POS & Inventory Management Dashboard",
-      },
-      {
-        url: "/bizstock-mobile-view-light.png",
-        width: 1200,
-        height: 630,
-        alt: "BizStock - Inventory Management Dashboard",
-      },
-      {
-        url: "/bizstock-mobile-pos-light.png",
-        width: 800,
-        height: 1200,
-        alt: "BizStock - Mobile POS Interface",
-      },
-      {
-        url: "/bizstock-mobile-pos-dark.png",
-        width: 800,
-        height: 1200,
-        alt: "BizStock - Mobile POS Interface",
-      },
-      {
-        url: "/bizstock-desktop-pos.png",
-        width: 1200,
-        height: 630,
-        alt: "BizStock - Desktop POS Interface",
-      },
+      
     ],
   },
   twitter: {
@@ -81,12 +46,7 @@ export const metadata: Metadata = {
     description:
       "POS and inventory management system with sales tracking, barcode scanning, printable receipts, WhatsApp invoice sharing, and mobile-ready dashboard.",
     images: [
-      "/bizstock-dashboard-dark.png",
-      "/bizstock-desktop-pos.png",
-      "/bizstock-mobile-view-light.png",
-      "/bizstock-dashboard-light.png",
-      "/bizstock-mobile-view-dark.png",
-      "/bizstock-mobile-pos-light.png",
+      "/bizstock-post.png",
     ],
     creator: "@dragondevs_", // Update if needed
   },

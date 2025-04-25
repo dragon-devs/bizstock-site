@@ -68,7 +68,6 @@ export const HeroSection = () => {
         >
           <motion.div
             className="sm:rounded-2xl rounded-xl overflow-hidden"
-            whileHover={{ y: -10 }}
             transition={{ duration: 0.3 }}
           >
             <Image
@@ -80,7 +79,7 @@ export const HeroSection = () => {
               priority
             />
             <Image
-              src="/bizstock-mobile-view-light.png"
+              src="/bizstock-mobile.png"
               alt="BizStock Mobile Dashboard"
               className="w-full sm:hidden block object-cover"
               width={1000}
