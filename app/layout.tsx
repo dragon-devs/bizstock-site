@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/bizstock-post.png",
-        width: 1000,
-        height: 1600,
+        width: 700,
+        height: 1200,
         alt: "BizStock - POS & Inventory Management Details",
       },
       
