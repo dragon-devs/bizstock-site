@@ -44,8 +44,8 @@ export const PolicySection = ({ title, icon: Icon, children, className, iconClas
   </motion.div>
 );
 
-// Terms and Conditions Component
-export const TermsAndConditions = () => {
+// Terms and Service Component
+export const TermsOfService = () => {
   return (
     <motion.section
       initial="hidden"
@@ -58,7 +58,7 @@ export const TermsAndConditions = () => {
         variants={itemVariants}
       >
         <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-          Terms & Conditions
+          Terms of Service
         </h1>
         <p className="text-gray-600 text-lg font-semibold tracking-tight">
           Last updated: December 2, 2024
@@ -66,7 +66,7 @@ export const TermsAndConditions = () => {
       </motion.div>
       <div className="flex flex-col gap-4 sm:gap-6">
         <PolicySection className='border' title="Service Usage" icon={CheckCircle}>
-          <p>By using BizStock's inventory management system, you agree to comply with and be bound by these terms and conditions.</p>
+          <p>By using BizStock's inventory management system, you agree to comply with and be bound by these terms and service.</p>
           <ul className="list-disc pl-5 mt-2 space-y-2">
             <li>You must be at least 18 years old to use this service</li>
             <li>You are responsible for maintaining the security of your account credentials</li>
@@ -277,7 +277,7 @@ export const CookiePolicy = () => {
 };
 
 export default {
-  TermsAndConditions,
+  TermsOfService,
   PrivacyPolicy,
   CookiePolicy
 };

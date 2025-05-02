@@ -9,7 +9,7 @@ export const SiteFooter = () => {
   const footerLinks = {
     Product: [
       {name: "Features", href: "/#features"},
-      {name: "Pricing", href: "/#pricing"},
+      {name: "Testimonials", href: "/#testimonials"},
       {name: "FAQ", href: "/#faq"},
     ],
     Company: [
@@ -54,7 +54,7 @@ export const SiteFooter = () => {
                 BizStock
               </div>
             </Link>
-            <p className="text-sm">Modern inventory management for modern business.</p>
+            <p className="text-sm">POS & Inventory solution for modern businesses.</p>
           </motion.div>
 
           {Object.entries(footerLinks).map(([section, links]) => (
@@ -110,7 +110,7 @@ export const SiteFooter = () => {
             >
               {[
                 {text: "Privacy Policy", href: "/privacy-policy"},
-                {text: "Terms & Conditions", href: "/terms-and-conditions"},
+                {text: "Terms of Service", href: "/terms-of-service"},
                 {text: "Cookies", href: "/cookies"},
               ].map(({text, href}) => (
                 <Link key={href} href={href} className="hover:text-white transition-colors">

@@ -21,7 +21,7 @@ export default function Home() {
             className="absolute -z-10 transition-all -top-5 right-0 w-72 h-72 bg-green-500/20 rounded-full blur-3xl"/>
           <HeroSection/>
           <FeaturesSection/>
-          <PricingSection/>
+          {/*<PricingSection/>*/}
           <SEOContentSection/>
           <TestimonialsSection/>
           <FaqSection/>

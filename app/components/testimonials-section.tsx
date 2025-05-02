@@ -145,7 +145,8 @@ export const TestimonialsSection = () => {
 
   return (
     <motion.section
-      className="py-16"
+      className="py-20"
+      id="testimonials"
       initial="hidden"
       whileInView="visible"
       viewport={{once: true, margin: "-100px"}}
