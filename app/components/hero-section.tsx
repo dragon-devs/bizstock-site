@@ -66,6 +66,18 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
+          <section className=" max-w-4xl pb-4 mx-auto">
+            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/0y_8KbbN0j0"
+                title="BizStock POS & Inventory Introduction"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </section>
           <motion.div
             className="sm:rounded-2xl rounded-xl overflow-hidden"
             transition={{ duration: 0.3 }}
@@ -73,17 +85,9 @@ export const HeroSection = () => {
             <Image
               src="/bizstock-background.png"
               alt="BizStock POS & Inventory Dashboard"
-              className="w-full sm:block hidden object-cover"
+              className="w-full object-cover"
               width={2000}
               height={1200}
-              priority
-            />
-            <Image
-              src="/bizstock-mobile.png"
-              alt="BizStock Mobile Dashboard"
-              className="w-full sm:hidden block object-cover"
-              width={1000}
-              height={1600}
               priority
             />
           </motion.div>
