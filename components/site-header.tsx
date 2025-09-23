@@ -73,7 +73,7 @@ export const SiteHeader = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center sm:space-x-4">
+          <div className="flex items-center sm:space-x-4 gap-2 md:gap-0">
             <ThemeToggle />
 
             {/* Login Button */}

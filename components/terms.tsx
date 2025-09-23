@@ -110,7 +110,7 @@ export const PrivacyPolicy = () => {
       icon: <User className="w-5 h-5 text-blue-600" />,
       content: (
         <>
-          <p className="py-2 text-black">We collect the following types of information:</p>
+          <p className="py-2 text-foreground">We collect the following types of information:</p>
           <ul className="list-disc pl-5">
             <li>Account information (name, email, business details)</li>
             <li>Inventory data (product details, stock levels, transactions)</li>
@@ -125,7 +125,7 @@ export const PrivacyPolicy = () => {
       icon: <Box className="w-5 h-5 text-purple-600" />,
       content: (
         <>
-          <p className="py-2 text-black">Your data is used for:</p>
+          <p className="py-2 text-foreground">Your data is used for:</p>
           <ul className="list-disc pl-5">
             <li>Providing and improving our inventory management services</li>
             <li>Processing transactions and maintaining records</li>
@@ -140,7 +140,7 @@ export const PrivacyPolicy = () => {
       icon: <Shield className="w-5 h-5 text-rose-600" />,
       content: (
         <>
-          <p className="py-2 text-black">We implement strong security measures:</p>
+          <p className="py-2 text-foreground">We implement strong security measures:</p>
           <ul className="list-disc pl-5">
             <li>End-to-end encryption for data transmission</li>
             <li>Regular security audits and penetration testing</li>
@@ -181,11 +181,11 @@ export const PrivacyPolicy = () => {
           >
             <button
               onClick={() => toggleSection(index)}
-              className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-50"
+              className="w-full px-6 py-4 flex justify-between items-center hover:bg-background/60"
             >
               <div className="flex items-center gap-3">
                 {section.icon}
-                <h3 className="text-xl font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold text-foreground">
                   {section.title}
                 </h3>
               </div>
@@ -193,7 +193,7 @@ export const PrivacyPolicy = () => {
                 animate={{ rotate: activeSection === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5 text-gray-500" />
+                <ChevronDown className="w-5 h-5 text-foreground/50" />
               </motion.div>
             </button>
 
@@ -206,7 +206,7 @@ export const PrivacyPolicy = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 bg-gray-50 border-t pb-4 text-gray-600">
+                  <div className="px-6 bg-background/60 border-t pb-4 text-foreground/60">
                     {section.content}
                   </div>
                 </motion.div>
@@ -260,14 +260,14 @@ export const CookiePolicy = () => {
       </div>
       <motion.div
         variants={itemVariants}
-        className="mt-8 bg-blue-50 p-6 rounded-xl"
+        className="mt-8 bg-background/60 p-6 rounded-xl"
       >
         <h3 className="text-xl font-semibold mb-4 tracking-tight">Cookie Management</h3>
-        <p className="text-gray-700 mb-4">
+        <p className="text-foreground/60 mb-4">
           You can manage your cookie preferences through your browser settings.
           However, please note that disabling certain cookies may affect the functionality of BizStock.
         </p>
-        <div className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+        <div className="flex items-center gap-2 text-primary hover:text-primary/70 transition-colors">
           <Shield className="w-5 h-5" />
           <span className="font-medium">Learn more about browser cookie settings</span>
         </div>
