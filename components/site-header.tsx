@@ -4,7 +4,10 @@ import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import {SiteTagsList} from "@/app/components/social-tags";
+import {SiteTagsList} from "@/components/social-tags";
+import {Button} from "@/components/ui/button";
+import {EditIcon} from "lucide-react";
+import {ThemeToggle} from "@/components/ThemeToggle";
 
 export const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +33,7 @@ export const SiteHeader = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
+        isScrolled ? ' backdrop-blur-md bg-background/40' : 'bg-transparent'
       }`}
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
@@ -38,41 +41,25 @@ export const SiteHeader = () => {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/biz-stock-logo.svg"
-              className="w-8 h-8 -mr-2"
+              className="w-8 h-8 -mr-1 dark:invert"
               alt="Biz Stock"
               width={100}
               height={100}
             />
-            <span className="text-base tracking-tighter font-bold bg-gradient-to-r from-black to-blue-800 bg-clip-text text-transparent">
+            <span className="text-base tracking-tighter font-bold text-foreground bg-clip-text hover:text-primary">
               BizStock
             </span>
           </Link>
-          <nav className="hidden md:flex text-sm items-center space-x-8">
-            <SiteTagsList tags={siteTags} />
+          <nav className="hidden md:flex text-sm items-center space-x-8 text-foreground">
+            <SiteTagsList tags={siteTags} icon={<EditIcon/>}  />
           </nav>
           <div className="flex items-center sm:space-x-4">
+            <ThemeToggle/>
             <Link className="w-full sm:w-fit" href="https://app.bizstock.net/auth/signin">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="hidden md:block px-4 rounded-lg py-1 sm:bg-transparent bg-blue-500 text-white sm:text-blue-600 hover:text-gray-200 sm:hover:text-blue-700 transition-colors"
-              >
-                Login
-              </motion.button>
+             <Button variant={"ghost"}>Login</Button>
             </Link>
             <Link href="https://app.bizstock.net/auth/register">
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  backgroundPosition: '100% 0%',
-                }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ backgroundPosition: '0% 0%' }}
-                animate={{ backgroundPosition: '50% 50%' }}
-                className="w-28 py-2 text-sm text-white rounded-full bg-gradient-to-r from-blue-600 to-green-600 bg-[length:200%_200%] transition-all"
-              >
-                Get Started
-              </motion.button>
+            <Button>Get Started</Button>
             </Link>
           </div>
         </div>

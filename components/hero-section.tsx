@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { fadeInUp, staggerContainer } from "@/app/components/animate";
+import { fadeInUp, staggerContainer } from "@/components/animate";
+import {Button} from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
     <section className="pt-32 pb-8 sm:pb-16 px-4">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center ">
         <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +24,7 @@ export const HeroSection = () => {
             All-in-One POS & Inventory System for Businesses
           </motion.h1>
           <motion.p
-            className="sm:text-base text-sm mt-6 text-gray-600"
+            className="sm:text-base text-sm mt-6 text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -38,24 +39,10 @@ export const HeroSection = () => {
             animate="animate"
           >
             <Link className="w-full sm:w-fit" href="https://app.bizstock.net/auth/register">
-              <motion.button
-                className="w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                variants={fadeInUp}
-              >
-                Start Free Trial
-              </motion.button>
+             <Button variant={"default"} size={"lg"}>Start Free Trial</Button>
             </Link>
             <Link className="w-full sm:w-fit" href="https://dragon-devs.vercel.app">
-              <motion.button
-                className="w-full sm:w-auto px-6 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                variants={fadeInUp}
-              >
-                Contact Us
-              </motion.button>
+             <Button variant={"outline"} size={"lg"}>Contact Us</Button>
             </Link>
           </motion.div>
         </motion.div>

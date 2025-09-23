@@ -2,7 +2,7 @@
 
 import {Barcode, BarChart2, Layers, Link2, TrendingUp, Users, ReceiptText, Zap} from 'lucide-react';
 import {motion} from 'framer-motion';
-import {PolicySection} from '@/app/components/terms';
+import {PolicySection} from '@/components/terms';
 import React from 'react';
 
 export const SEOContentSection = () => {

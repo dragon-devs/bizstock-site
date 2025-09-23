@@ -2,8 +2,9 @@ import type {Metadata} from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
-import SocialShareWidget from "@/app/components/social-share-widgets";
-import {SiteHeader} from "@/app/components/site-header";
+import SocialShareWidget from "@/components/social-share-widgets";
+import {SiteHeader} from "@/components/site-header";
+import {ThemeProvider} from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -113,7 +114,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
     <head>
       <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48"/>
       <link rel="apple-touch-icon" href="/apple-icon.png"/>
@@ -121,7 +122,13 @@ export default function RootLayout({
       <meta name="theme-color" content="#0f172a"/>
     </head>
     <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-background`}
+    >
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
     >
     <SiteHeader/>
     {children}
@@ -129,7 +136,8 @@ export default function RootLayout({
       url="https://www.bizstock.net"
       title="BizStock - POS & Inventory Management System"
     />
+    </ThemeProvider>
     </body>
     </html>
-  );
+  )
 }

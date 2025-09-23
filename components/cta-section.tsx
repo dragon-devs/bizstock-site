@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import Link from "next/link";
 import React from "react";
-import {fadeInUp, staggerChildren} from "@/app/components/animate";
+import {fadeInUp, staggerChildren} from "@/components/animate";
 
 export const CtaSection = () => {
   const buttonVariants = {

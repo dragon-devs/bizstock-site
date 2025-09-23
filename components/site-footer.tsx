@@ -2,8 +2,8 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import {SiteTags} from "@/app/components/social-tags";
-import {fadeInUp, staggerChildren} from "@/app/components/animate";
+import {SiteTags} from "@/components/social-tags";
+import {fadeInUp, staggerChildren} from "@/components/animate";
 
 export const SiteFooter = () => {
   const footerLinks = {

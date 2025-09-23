@@ -1,5 +1,5 @@
 import React from 'react';
-import {PrivacyPolicy} from "@/app/components/terms";
+import {PrivacyPolicy} from "@/components/terms";
 
 const PrivacyPolicyPage = () => {
   return (

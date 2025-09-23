@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 import {CheckCircle2} from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import {fadeInUp, staggerContainer} from "@/app/components/animate";
+import {fadeInUp, staggerContainer} from "@/components/animate";
 
 export const PricingSection = () => {
   const plan = {
