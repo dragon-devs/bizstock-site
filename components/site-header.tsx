@@ -33,7 +33,7 @@ export const SiteHeader = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? ' backdrop-blur-md bg-background/40' : 'bg-transparent'
+        isScrolled ? ' backdrop-blur-md bg-background/65' : 'bg-transparent'
       }`}
     >
       <div className="container max-w-[72rem] mx-auto sm:p-4 p-2">
@@ -55,7 +55,7 @@ export const SiteHeader = () => {
           </nav>
           <div className="flex items-center sm:space-x-4">
             <ThemeToggle/>
-            <Link className="w-full sm:w-fit" href="https://app.bizstock.net/auth/signin">
+            <Link href="https://app.bizstock.net/auth/signin">
              <Button variant={"ghost"}>Login</Button>
             </Link>
             <Link href="https://app.bizstock.net/auth/register">
