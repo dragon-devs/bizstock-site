@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowLeft, Home } from 'lucide-react';
 import {useRouter} from "next/navigation";
+import {Button} from "@/components/ui/button";
 
 export default function NotFound(
   {
@@ -35,21 +36,20 @@ export default function NotFound(
 
           {/* Navigation buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
+            <Button
+              variant={"outline"}
               onClick={() => router.back()}
-              className="group px-4 flex items-center rounded-md py-2 border hover:border-blue-500 transition-all"
             >
-              <ArrowLeft className="mr-2 h-4 w-4 group-hover:text-blue-500" />
+              <ArrowLeft  />
               Go Back
-            </button>
+            </Button>
 
-            <button
+            <Button
               onClick={() => router.push('/')}
-              className="px-4 flex items-center rounded-md py-2 text-white bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-500 hover:to-green-600"
             >
-              <Home className="mr-2 h-4 w-4" />
+              <Home  />
               Return Home
-            </button>
+            </Button>
           </div>
 
           {/* Decorative elements */}
