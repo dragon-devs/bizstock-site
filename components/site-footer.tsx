@@ -24,12 +24,12 @@ export const SiteFooter = () => {
   };
 
   const linkVariants = {
-    hover: {x: 5, color: "#ffffff"},
+    hover: {x: 5, color: "f"},
   };
 
   return (
     <motion.footer
-      className="bg-gray-900 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] text-gray-400 py-12"
+      className="bg-background/90 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] text-foreground/50 py-12"
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       transition={{duration: 0.5}}
@@ -50,7 +50,7 @@ export const SiteFooter = () => {
                 width={100}
                 height={100}
               />
-              <div className="text-base -ml-4 font-semibold text-white tracking-tighter">
+              <div className="text-base -ml-4 font-semibold text-foreground tracking-tighter">
                 BizStock
               </div>
             </Link>
@@ -59,11 +59,11 @@ export const SiteFooter = () => {
 
           {Object.entries(footerLinks).map(([section, links]) => (
             <motion.div key={section} variants={fadeInUp}>
-              <p className="text-white font-semibold mb-4">{section}</p>
+              <p className="text-foreground font-semibold mb-4">{section}</p>
               <ul className="space-y-2">
                 {links.map(({name, href}) => (
                   <motion.li key={name} variants={fadeInUp}>
-                    <SiteTags href={href} name={name} className="text-gray-500 hover:text-white"/>
+                    <SiteTags href={href} name={name} className="text-foreground/60 hover:text-foreground"/>
                   </motion.li>
                 ))}
               </ul>
@@ -72,7 +72,7 @@ export const SiteFooter = () => {
         </motion.div>
 
         <motion.div
-          className="border-t border-gray-800 mt-12 pt-8 text-sm"
+          className="border-t border-foreground/30 mt-12 pt-8 text-sm"
           initial={{opacity: 0}}
           animate={{opacity: 1}}
           transition={{delay: 0.5}}
@@ -88,7 +88,7 @@ export const SiteFooter = () => {
               <span className="flex gap-1 items-center">
                 <span className="text-muted-foreground">developed by</span>
                 <Link
-                  className="flex items-center hover:underline hover:text-white transition-all font-semibold"
+                  className="flex items-center hover:underline hover:text-foreground transition-all font-semibold"
                   href="https://dragon-devs.vercel.app"
                 >
                   <Image
@@ -113,7 +113,7 @@ export const SiteFooter = () => {
                 {text: "Terms of Service", href: "/terms-of-service"},
                 {text: "Cookies", href: "/cookies"},
               ].map(({text, href}) => (
-                <Link key={href} href={href} className="hover:text-white transition-colors">
+                <Link key={href} href={href} className="hover:text-foreground transition-colors">
                   {text}
                 </Link>
               ))}

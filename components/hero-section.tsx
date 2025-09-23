@@ -29,9 +29,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            All-in-One POS & Inventory System for Businesses, Run your entire business from one place — manage stock with multiple variants, scan or generate barcodes, handle expenses, track customer ledgers, send invoices via WhatsApp & SMS, print mini receipts, and get real-time reports — all from a mobile-first, blazing-fast dashboard.
-          </motion.p>
-          
+            All-in-One POS & Inventory System manage stock with variants, scan or generate barcodes, track expenses and customer ledgers, send invoices via WhatsApp & SMS, print mini receipts, and get real-time reports all from a fast, mobile-first dashboard.</motion.p>
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 md:py-12 py-8"
             variants={staggerContainer}

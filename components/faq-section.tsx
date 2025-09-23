@@ -105,7 +105,7 @@ export const FaqSection = () => {
   return (
     <motion.section
       id="faq"
-      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50"
+      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-background/50"
       initial="hidden"
       whileInView="visible"
       viewport={{once: true, margin: "-100px"}}
@@ -119,7 +119,7 @@ export const FaqSection = () => {
           <h2 className="text-4xl font-bold mb-4 tracking-tighter">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-600">
+          <p className="text-foreground/60">
             Find answers to common questions about BizStock
           </p>
         </motion.div>
@@ -162,7 +162,7 @@ export const FaqSection = () => {
                     className="overflow-hidden"
                   >
                     <motion.div
-                      className="px-6 pb-4 text-gray-600 leading-tight"
+                      className="px-6 pb-4 text-foreground/60 leading-tight"
                       initial={{opacity: 0, y: 10}}
                       animate={{opacity: 1, y: 0}}
                       exit={{opacity: 0, y: -10}}

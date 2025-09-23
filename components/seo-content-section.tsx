@@ -81,7 +81,7 @@ export const SEOContentSection = () => {
   
   return (
     <motion.section
-      className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-white"
+      className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-background/50"
       initial="hidden"
       whileInView="visible"
       viewport={{once: true, margin: "-100px"}}

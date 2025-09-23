@@ -77,7 +77,7 @@ export const FeaturesSection = () => {
   return (
     <motion.section
       id="features"
-      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80"
+      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-background/80"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -91,7 +91,7 @@ export const FeaturesSection = () => {
           Built for Business. Packed with Power.
         </motion.h2>
         <motion.p
-          className="text-gray-600 text-center mb-16 max-w-2xl mx-auto"
+          className="text-foreground text-center mb-16 max-w-2xl mx-auto"
           variants={itemVariants}
         >
           Whether you run a retail shop, wholesale business, or multi-branch
@@ -108,7 +108,7 @@ export const FeaturesSection = () => {
               key={index}
               variants={itemVariants}
               whileInView={{ scale: 1 }}
-              className="p-6 bg-white rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 transform origin-center"
+              className="p-6 bg-background rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 transform origin-center"
             >
               <motion.div
                 className="mb-4"
@@ -130,7 +130,7 @@ export const FeaturesSection = () => {
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-gray-600"
+                className="text-foreground/80"
               >
                 {feature.description}
               </motion.p>

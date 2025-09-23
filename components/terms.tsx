@@ -27,18 +27,18 @@ const itemVariants = {
 };
 
 // Shared Section Component
-export const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-blue-500" }: any) => (
+export const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-foreground" }: any) => (
 
   <motion.div
     whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
     variants={itemVariants}
-    className={` bg-white rounded-xl p-6 transition-shadow ${className}`}
+    className={` bg-background/60 rounded-xl p-6 transition-shadow border border-accent ${className}`}
   >
     <div className="flex items-center gap-3 mb-4">
       <Icon className={`w-8 h-8 p-1 rounded-md ${iconClass}`} />
-      <p className="text-xl font-semibold text-gray-800 tracking-tighter leading-none">{title}</p>
+      <p className="text-xl font-semibold text-foreground tracking-tighter leading-none">{title}</p>
     </div>
-    <div className="text-gray-600 space-y-3">
+    <div className="text-foreground/80 space-y-3">
       {children}
     </div>
   </motion.div>
@@ -60,7 +60,7 @@ export const TermsOfService = () => {
         <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Terms of Service
         </h1>
-        <p className="text-gray-600 text-lg font-semibold tracking-tight">
+        <p className="text-foreground text-lg font-semibold tracking-tight">
           Last updated: December 2, 2024
         </p>
       </motion.div>
@@ -177,7 +177,7 @@ export const PrivacyPolicy = () => {
           <motion.div
             key={index}
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-            className="bg-white rounded-xl overflow-hidden"
+            className="bg-background rounded-xl overflow-hidden"
           >
             <button
               onClick={() => toggleSection(index)}
