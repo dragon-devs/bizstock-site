@@ -5,6 +5,7 @@ import React from "react";
 import SocialShareWidget from "@/components/social-share-widgets";
 import {SiteHeader} from "@/components/site-header";
 import {ThemeProvider} from "@/components/theme-provider";
+import {Header} from "@/components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -130,6 +131,7 @@ export default function RootLayout({
       enableSystem
       disableTransitionOnChange
     >
+
     <SiteHeader/>
     {children}
     <SocialShareWidget

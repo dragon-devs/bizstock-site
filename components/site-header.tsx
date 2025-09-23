@@ -71,20 +71,17 @@ export const SiteHeader = () => {
               </Link>
             ))}
           </nav>
-
           {/* Action Buttons */}
-          <div className="flex items-center sm:space-x-4 gap-2 md:gap-0">
+          <div className="flex items-center gap-1.5 md:gap-3">
             <ThemeToggle />
-
             {/* Login Button */}
             <Link href="https://app.bizstock.net/auth/signin">
               <Button
-                variant="outline"
-                className="flex items-center gap-2 md:w-auto w-9 px-2 py-1 sm:px-4 sm:py-2"
+                variant="ghost"
+                className="flex items-center gap-2 md:w-auto w-9 px-2 py-1 sm:px-4 sm:py-2 md:border md:border-gray-600"
               >
                 <LogInIcon className="w-4 h-4" />
                 <span className="hidden sm:inline">Login</span>
-
               </Button>
             </Link>
 

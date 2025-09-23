@@ -57,13 +57,13 @@ export const SEOContentSection = () => {
       icon: Link2,
       iconColor: "text-teal-600 bg-teal-100",
       title: "Multi-Module Ecosystem",
-      description: "Everything your business needs—products, vendors, customers, expenses, invoices, reporting—all deeply connected in one streamlined system."
+      description: "Everything your business needs products, vendors, customers, expenses, invoices, reporting all deeply connected in one streamlined system."
     },
     {
       icon: BarChart2,
       iconColor: "text-red-600 bg-red-100",
       title: "Advanced Business Reports",
-      description: "Get comprehensive financial reports, export as PDF, CSV, or TXT, and gain real insights for smart decision-making with printable formats ready."
+      description: "Get comprehensive financial reports, export as PDF, CSV, or TXT, and gain real insights for smart decision making with printable formats ready."
     },
     {
       icon: TrendingUp,
@@ -75,7 +75,7 @@ export const SEOContentSection = () => {
       icon: Zap,
       iconColor: "text-indigo-600 bg-indigo-100",
       title: "Lightning Fast Experience",
-      description: "Powered by Next.js and Zustand for seamless state management. Feels like an offline app—fast, fluid, and reliable for daily use."
+      description: "Powered by Next.js and Zustand for seamless state management. Feels like an offline app fast, fluid, and reliable for daily use."
     }
   ];
   
