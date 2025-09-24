@@ -81,15 +81,9 @@ export const HeroSection = () => {
               className="w-full h-full"
               src="https://www.youtube.com/embed/0y_8KbbN0j0"
               title="BizStock POS & Inventory Introduction"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-
-            {/* Floating Play Button */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <PlayCircle className="w-20 h-20 text-white opacity-70" />
-            </div>
           </div>
 
           {/* Background Dashboard Image */}
