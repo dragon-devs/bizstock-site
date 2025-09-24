@@ -31,12 +31,12 @@ export const SiteFooter = () => {
 
   return (
     <motion.footer
-      className="bg-background/95 w-[100vw] relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] text-foreground/70 py-12 border-t border-foreground/10"
+      className="bg-background/95 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]  text-foreground/70 py-12 border-t border-foreground/10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container max-w-7xl mx-auto px-6">
+      <div className="container max-w-[72rem] mx-auto px-6">
         {/* Top Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-4 gap-8"
@@ -55,7 +55,7 @@ export const SiteFooter = () => {
                 alt="BizStock Logo"
                 width={40}
                 height={40}
-                className="h-10 w-10 mr-3 dark:invert transition-all"
+                className="h-10 w-10 dark:invert transition-all"
               />
               <span className="text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                 BizStock
@@ -138,7 +138,7 @@ export const SiteFooter = () => {
 
             {/* Policy Links */}
             <motion.div
-              className="flex flex-wrap justify-center md:justify-end gap-6 px-6"
+              className="flex flex-wrap justify-center md:justify-end gap-6"
               variants={staggerChildren}
               initial="initial"
               animate="animate"

@@ -145,10 +145,10 @@ export const FaqSection: React.FC = () => {
       <div className="container mx-auto px-4 max-w-5xl">
         {/* Header */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <h2 className="text-foreground text-4xl font-bold mb-4 tracking-tight">
+          <h2 className="text-foreground text-4xl font-bold mb-4 tracking-tight sm:text-5xl">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-xl">
             Find answers to the most common questions about BizStock.
           </p>
         </motion.div>

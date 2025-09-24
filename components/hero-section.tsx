@@ -43,8 +43,8 @@ export const HeroSection = () => {
           >
             Manage stock with variants, scan or generate barcodes, track expenses
             and customer ledgers, send invoices via WhatsApp & SMS, print mini
-            receipts, and get real-time reports — all from a blazing-fast,
-            mobile-first dashboard.
+            receipts, and get real-time reports all from a blazing-fast,
+            mobile first dashboard.
           </motion.p>
 
           {/* Action Buttons */}

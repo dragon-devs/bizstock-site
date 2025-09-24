@@ -36,9 +36,9 @@ export const PolicySection = ({ title, icon: Icon, children, className, iconClas
   >
     <div className="flex items-center gap-3 mb-4">
       <Icon className={`w-8 h-8 p-1 rounded-md ${iconClass}`} />
-      <p className="text-xl font-semibold text-foreground tracking-tighter leading-none">{title}</p>
+      <p className="text-xl font-semibold text-foreground tracking-tight leading-none">{title}</p>
     </div>
-    <div className="text-foreground/80 space-y-3">
+    <div className="text-foreground/70 leading-relaxed text-base">
       {children}
     </div>
   </motion.div>

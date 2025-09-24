@@ -157,7 +157,7 @@ export const TestimonialsSection = () => {
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
-          className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tighter"
+          className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tight sm:text-5xl"
           variants={{
             hidden: {opacity: 0, y: -20},
             visible: {opacity: 1, y: 0, transition: {duration: 0.5}}

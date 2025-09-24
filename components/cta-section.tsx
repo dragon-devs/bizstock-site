@@ -24,7 +24,7 @@ export const CtaSection = () => {
       />
       <div className="container mx-auto px-4 text-center relative">
         <motion.h2
-          className="text-4xl font-bold mb-6 tracking-tighter"
+          className="text-4xl font-bold mb-6 tracking-tight sm:text-5xl"
           variants={fadeInUp}
         >
           Ready to Transform Your Business?

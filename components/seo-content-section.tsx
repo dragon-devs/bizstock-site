@@ -89,7 +89,7 @@ export const SEOContentSection = () => {
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center tracking-tighter"
+          className="text-4xl font-bold mb-12 text-center tracking-tight sm:text-5xl"
           variants={itemVariants}
         >
           Why BizStock is Built for Real Business Needs
