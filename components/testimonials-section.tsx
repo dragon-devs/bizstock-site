@@ -177,7 +177,6 @@ export const TestimonialsSection = () => {
             <motion.div
               key={index}
               whileHover={{
-                scale: 1.05,
                 rotate: index % 1 === 0 ? 1 : -1,
                 transition: {duration: 0.2}
               }}
@@ -193,7 +192,7 @@ export const TestimonialsSection = () => {
               </motion.p>
               <div className="font-semibold">
                 <Quote
-                  className="absolute bottom-6 right-6 text-blue-500 opacity-20"
+                  className="absolute bottom-6 right-6 text-foreground opacity-20"
                   size={100}
                 />
 

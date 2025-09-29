@@ -123,7 +123,7 @@ export default function RootLayout({
       <meta name="theme-color" content="#0f172a"/>
     </head>
     <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-background`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
     >
     <ThemeProvider
       attribute="class"

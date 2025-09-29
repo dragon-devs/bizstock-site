@@ -59,8 +59,8 @@ export const PricingSection = () => {
           viewport={{once: true}}
           transition={{duration: 0.6}}
         >
-          <h2 className="text-4xl font-bold mb-4 tracking-tighter">Starter Plan – Transparent & Flexible</h2>
-          <p className="text-gray-600">
+          <h2 className="text-4xl font-bold mb-4 tracking-tight text-foreground">Starter Plan – Transparent & Flexible</h2>
+          <p className="text-muted-foreground">
             Get started with powerful tools to run your business — no hidden fees, no surprises.
           </p>
         </motion.div>
@@ -73,20 +73,20 @@ export const PricingSection = () => {
           viewport={{once: true}}
         >
           <motion.div
-            className="relative p-6 rounded-xl bg-white border border-gray-200 hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
+            className="relative p-6 rounded-xl bg-background border border-card hover:shadow-xl hover:shadow-blue-500/30 transition-shadow"
             variants={fadeInUp}
             initial={{y: 20, opacity: 0}}
             whileInView={{y: 0, opacity: 1}}
             transition={{delay: 0.3, duration: 0.5}}
           >
             <h3 className="text-2xl font-bold mb-2">{plan.name} Plan</h3>
-            <p className="mb-6 text-gray-600">{plan.description}</p>
+            <p className="mb-6 text-muted-foreground">{plan.description}</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
               {plan.options.map((option, index) => (
                 <motion.div
                   key={index}
-                  className={`relative p-4 border rounded-xl text-center transition-all ${option.best ? 'border-blue-600 border-2 shadow-md shadow-blue-500/20' : 'border-gray-200'}`}
+                  className={`relative p-4 border rounded-xl text-center transition-all ${option.best ? 'border-blue-600 border-2 shadow-md shadow-blue-500/20' : 'border-border'}`}
                   whileHover={{
                     y: -5,
                     transition: {duration: 0.2}
@@ -94,7 +94,7 @@ export const PricingSection = () => {
                   variants={fadeInUp}
                 >
                   {option.best && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-medium">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-background/70 text-foreground px-4 py-1 rounded-full text-xs font-medium">
                       BEST VALUE
                     </div>
                   )}
@@ -110,7 +110,7 @@ export const PricingSection = () => {
                       ₨{option.price.toLocaleString()}
                     </p>
                     {option.originalPrice && (
-                      <span className="text-gray-500 line-through text-sm">
+                      <span className="text-foreground line-through text-sm">
                         ₨{option.originalPrice.toLocaleString()}
                       </span>
                     )}

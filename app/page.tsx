@@ -12,7 +12,7 @@ import {SiteFooter} from "@/components/site-footer";
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-l from-blue-500/40 to-white/0">
+    <div className="bg-gradient-to-l from-slate-800/20 to-slate-200/10">
       <div className="flex max-w-[72rem] mx-auto flex-col">
         <main className="flex-1 ">
           <div

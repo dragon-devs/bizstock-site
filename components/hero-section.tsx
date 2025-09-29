@@ -32,7 +32,7 @@ export const HeroSection = () => {
         >
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight bg-gradient-to-r from-blue-600 via-blue-800 to-green-600 bg-clip-text text-transparent"
+            className="md:p-2 text-4xl md:text-6xl font-bold tracking-tight leading-tight text-foreground"
           >
             All-in-One POS & Inventory System for Businesses
           </motion.h1>
@@ -88,7 +88,7 @@ export const HeroSection = () => {
 
           {/* Background Dashboard Image */}
           <motion.div
-            className="sm:rounded-2xl rounded-xl overflow-hidden mt-8 shadow-lg"
+            className="sm:rounded-2xl rounded-xl overflow-hidden mt-8"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
