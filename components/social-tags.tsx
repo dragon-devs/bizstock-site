@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 import React from "react";
 
 
-export const SiteTags = ({ href, name, className = 'text-gray-600 hover:text-blue-600' }: any) => {
+export const SiteTags = ({ href, name, className = 'text-foreground hover:text-primary' }: any) => {
   return (
     <Link href={href} className={`${className} transition-colors`}>
       {name}
@@ -17,7 +17,6 @@ export const SiteTagsList = ({ tags }: any) => {
       {tags.map((item: any, index: any) => (
         <motion.span
           key={index}
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}

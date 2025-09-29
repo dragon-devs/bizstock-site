@@ -15,7 +15,7 @@ export const FeaturesSection = () => {
       icon: <Database className="w-8 h-8 text-blue-500" />,
       title: "Live Inventory Management",
       description:
-        "Track every product in real-time with instant updates, auto stock alerts, and variant-level control — never run out or overstock again.",
+        "Track every product in real-time with instant updates, auto stock alerts, and variant-level control never run out or overstock again.",
     },
     {
       icon: <LineChart className="w-8 h-8 text-rose-500" />,
@@ -27,19 +27,19 @@ export const FeaturesSection = () => {
       icon: <CloudCog className="w-8 h-8 text-green-500" />,
       title: "Cloud Sync & Integrations",
       description:
-        "Access your business anytime, anywhere — simply open your browser or use our mobile app. Seamlessly sync with platforms for a fully connected workflow.",
+        "Access your business anytime, anywhere simply open your browser or use our mobile app. Seamlessly sync with platforms for a fully connected workflow.",
     },
     {
       icon: <Building2 className="w-8 h-8 text-purple-500" />,
       title: "Multi-Branch Management",
       description:
-        "Manage inventory, staff, and sales across multiple stores or warehouses from a single dashboard — all in real-time.",
+        "Manage inventory, staff, and sales across multiple stores or warehouses from a single dashboard all in real-time.",
     },
     {
       icon: <Shield className="w-8 h-8 text-indigo-500" />,
       title: "Enterprise-Grade Security",
       description:
-        "Your data is protected with bank-level encryption, multi-user permissions, and daily encrypted backups — giving you full control and peace of mind.",
+        "Your data is protected with bank-level encryption, multi-user permissions, and daily encrypted backups giving you full control and peace of mind.",
     },
     {
       icon: <Settings2 className="w-8 h-8 text-amber-500" />,
@@ -77,27 +77,26 @@ export const FeaturesSection = () => {
   return (
     <motion.section
       id="features"
-      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-gray-50/80"
+      className="py-20 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-background/80"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
       <div className="container max-w-[72rem] mx-auto px-4">
-        <motion.h2
-          className="text-4xl font-bold mb-4 text-center tracking-tighter"
-          variants={itemVariants}
-        >
-          Built for Business. Packed with Power.
-        </motion.h2>
-        <motion.p
-          className="text-gray-600 text-center mb-16 max-w-2xl mx-auto"
-          variants={itemVariants}
-        >
-          Whether you run a retail shop, wholesale business, or multi-branch
-          operation — BizStock gives you everything to manage stock, sales,
-          reports, and more in one intuitive system.
-        </motion.p>
+        <motion.div className="text-center mb-16" variants={itemVariants}>
+          <h1
+            id="features-heading"
+            className="text-4xl font-bold tracking-tight sm:text-5xl"
+          >
+            Built for Business. Packed with Power.
+          </h1>
+          <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+            Whether you run a retail shop, wholesale business, or multi-branch
+            operation BizStock gives you everything to manage stock, sales,
+            reports, and more in one intuitive platform.
+          </p>
+        </motion.div>
         
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-4"
@@ -108,7 +107,7 @@ export const FeaturesSection = () => {
               key={index}
               variants={itemVariants}
               whileInView={{ scale: 1 }}
-              className="p-6 bg-white rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 transform origin-center"
+              className="p-6 bg-background rounded-xl hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 transform origin-center"
             >
               <motion.div
                 className="mb-4"
@@ -122,7 +121,7 @@ export const FeaturesSection = () => {
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-xl font-semibold mb-2 tracking-tighter"
+                className="text-xl font-semibold mb-2 tracking-tight"
               >
                 {feature.title}
               </motion.h3>
@@ -130,7 +129,7 @@ export const FeaturesSection = () => {
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-gray-600"
+                className="text-foreground/70 leading-relaxed text-sm"
               >
                 {feature.description}
               </motion.p>

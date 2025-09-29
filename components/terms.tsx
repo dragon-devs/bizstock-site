@@ -27,18 +27,18 @@ const itemVariants = {
 };
 
 // Shared Section Component
-export const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-blue-500" }: any) => (
+export const PolicySection = ({ title, icon: Icon, children, className, iconClass = "text-foreground" }: any) => (
 
   <motion.div
     whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
     variants={itemVariants}
-    className={` bg-white rounded-xl p-6 transition-shadow ${className}`}
+    className={` bg-background/60 rounded-xl p-6 transition-shadow border border-accent ${className}`}
   >
     <div className="flex items-center gap-3 mb-4">
       <Icon className={`w-8 h-8 p-1 rounded-md ${iconClass}`} />
-      <p className="text-xl font-semibold text-gray-800 tracking-tighter leading-none">{title}</p>
+      <p className="text-xl font-semibold text-foreground tracking-tight leading-none">{title}</p>
     </div>
-    <div className="text-gray-600 space-y-3">
+    <div className="text-foreground/70 leading-relaxed text-base">
       {children}
     </div>
   </motion.div>
@@ -60,7 +60,7 @@ export const TermsOfService = () => {
         <h1 className="text-4xl tracking-tighter font-bold mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
           Terms of Service
         </h1>
-        <p className="text-gray-600 text-lg font-semibold tracking-tight">
+        <p className="text-foreground text-lg font-semibold tracking-tight">
           Last updated: December 2, 2024
         </p>
       </motion.div>
@@ -110,7 +110,7 @@ export const PrivacyPolicy = () => {
       icon: <User className="w-5 h-5 text-blue-600" />,
       content: (
         <>
-          <p className="py-2 text-black">We collect the following types of information:</p>
+          <p className="py-2 text-foreground">We collect the following types of information:</p>
           <ul className="list-disc pl-5">
             <li>Account information (name, email, business details)</li>
             <li>Inventory data (product details, stock levels, transactions)</li>
@@ -125,7 +125,7 @@ export const PrivacyPolicy = () => {
       icon: <Box className="w-5 h-5 text-purple-600" />,
       content: (
         <>
-          <p className="py-2 text-black">Your data is used for:</p>
+          <p className="py-2 text-foreground">Your data is used for:</p>
           <ul className="list-disc pl-5">
             <li>Providing and improving our inventory management services</li>
             <li>Processing transactions and maintaining records</li>
@@ -140,7 +140,7 @@ export const PrivacyPolicy = () => {
       icon: <Shield className="w-5 h-5 text-rose-600" />,
       content: (
         <>
-          <p className="py-2 text-black">We implement strong security measures:</p>
+          <p className="py-2 text-foreground">We implement strong security measures:</p>
           <ul className="list-disc pl-5">
             <li>End-to-end encryption for data transmission</li>
             <li>Regular security audits and penetration testing</li>
@@ -177,15 +177,15 @@ export const PrivacyPolicy = () => {
           <motion.div
             key={index}
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-            className="bg-white rounded-xl overflow-hidden"
+            className="bg-background rounded-xl overflow-hidden"
           >
             <button
               onClick={() => toggleSection(index)}
-              className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-50"
+              className="w-full px-6 py-4 flex justify-between items-center hover:bg-background/60"
             >
               <div className="flex items-center gap-3">
                 {section.icon}
-                <h3 className="text-xl font-semibold text-gray-800">
+                <h3 className="text-xl font-semibold text-foreground">
                   {section.title}
                 </h3>
               </div>
@@ -193,7 +193,7 @@ export const PrivacyPolicy = () => {
                 animate={{ rotate: activeSection === index ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <ChevronDown className="w-5 h-5 text-gray-500" />
+                <ChevronDown className="w-5 h-5 text-foreground/50" />
               </motion.div>
             </button>
 
@@ -206,7 +206,7 @@ export const PrivacyPolicy = () => {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 bg-gray-50 border-t pb-4 text-gray-600">
+                  <div className="px-6 bg-background/60 border-t pb-4 text-foreground/60">
                     {section.content}
                   </div>
                 </motion.div>
@@ -260,14 +260,14 @@ export const CookiePolicy = () => {
       </div>
       <motion.div
         variants={itemVariants}
-        className="mt-8 bg-blue-50 p-6 rounded-xl"
+        className="mt-8 bg-background/60 p-6 rounded-xl"
       >
         <h3 className="text-xl font-semibold mb-4 tracking-tight">Cookie Management</h3>
-        <p className="text-gray-700 mb-4">
+        <p className="text-foreground/60 mb-4">
           You can manage your cookie preferences through your browser settings.
           However, please note that disabling certain cookies may affect the functionality of BizStock.
         </p>
-        <div className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+        <div className="flex items-center gap-2 text-primary hover:text-primary/70 transition-colors">
           <Shield className="w-5 h-5" />
           <span className="font-medium">Learn more about browser cookie settings</span>
         </div>

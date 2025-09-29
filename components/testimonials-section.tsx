@@ -157,7 +157,7 @@ export const TestimonialsSection = () => {
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
-          className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tighter"
+          className="text-4xl font-bold mb-6 sm:mb-12 text-center tracking-tight sm:text-5xl"
           variants={{
             hidden: {opacity: 0, y: -20},
             visible: {opacity: 1, y: 0, transition: {duration: 0.5}}
@@ -177,14 +177,13 @@ export const TestimonialsSection = () => {
             <motion.div
               key={index}
               whileHover={{
-                scale: 1.05,
                 rotate: index % 1 === 0 ? 1 : -1,
                 transition: {duration: 0.2}
               }}
               className="min-w-full md:min-w-[400px] p-4 sm:p-6 inline-block rounded-xl hover:border  hover:sm:shadow-lg hover:shadow-blue-500/50 hover:border-blue-500/50 transition-all duration-300 transform relative"
             >
               <motion.p
-                className="font-light mb-4 text-gray-700 text-lg"
+                className="font-light mb-4 text-foreground/70 text-lg"
                 initial={{opacity: 0}}
                 whileInView={{opacity: 1}}
                 transition={{delay: 0.3, duration: 0.5}}
@@ -193,7 +192,7 @@ export const TestimonialsSection = () => {
               </motion.p>
               <div className="font-semibold">
                 <Quote
-                  className="absolute bottom-6 right-6 text-blue-500 opacity-20"
+                  className="absolute bottom-6 right-6 text-foreground opacity-20"
                   size={100}
                 />
 
@@ -205,7 +204,7 @@ export const TestimonialsSection = () => {
                   {testimonial.name}
                 </motion.p>
                 <motion.p
-                  className="text-gray-600 text-sm"
+                  className="text-foreground/60 text-sm"
                   initial={{x: -20, opacity: 0}}
                   whileInView={{x: 0, opacity: 1}}
                   transition={{delay: 0.5, duration: 0.5}}

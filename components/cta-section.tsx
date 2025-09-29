@@ -1,17 +1,14 @@
 import {motion} from "framer-motion";
 import Link from "next/link";
 import React from "react";
-import {fadeInUp, staggerChildren} from "@/app/components/animate";
+import {fadeInUp, staggerChildren} from "@/components/animate";
+import {Button} from "@/components/ui/button";
 
 export const CtaSection = () => {
-  const buttonVariants = {
-    hover: {scale: 1.05},
-    tap: {scale: 0.95},
-  };
 
   return (
     <motion.section
-      className="py-20 w-[100vw] left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]  bg-gradient-to-r from-blue-600 to-green-500 text-white overflow-hidden relative"
+      className="py-20 w-[100vw] left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]  text-foreground overflow-hidden relative"
       initial="initial"
       whileInView="animate"
       viewport={{once: true, margin: "-100px"}}
@@ -27,13 +24,13 @@ export const CtaSection = () => {
       />
       <div className="container mx-auto px-4 text-center relative">
         <motion.h2
-          className="text-4xl font-bold mb-6 tracking-tighter"
+          className="text-4xl font-bold mb-6 tracking-tight sm:text-5xl"
           variants={fadeInUp}
         >
           Ready to Transform Your Business?
         </motion.h2>
         <motion.p
-          className="text-xl mb-8 text-blue-100"
+          className="text-xl mb-8 text-foreground/80"
           variants={fadeInUp}
         >
           Join thousands of businesses that trust BizStock for their inventory management
@@ -42,26 +39,11 @@ export const CtaSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
           variants={staggerChildren}
         >
-          <Link className="w-full sm:w-fit" href="https://app.bizstock.net">
-            <motion.button
-              className="px-6 w-full py-2 bg-white text-blue-600 rounded-full"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              Start <span className="font-bold">14-Days</span> Free Trial
-            </motion.button>
+          <Link  href="https://app.bizstock.net">
+            <Button size={"lg"}> Start <span className="font-bold">14-Days</span> Free Trial</Button>
           </Link>
-          <Link className="w-full sm:w-fit"
-                href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
-            <motion.button
-              className="px-6 w-full py-2 border border-white text-white rounded-full"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              Download Bizstock.exe App
-            </motion.button>
+          <Link href="https://github.com/dragon-devs/bizstock-app/raw/refs/heads/master/src-tauri/target/release/bundle/nsis/BizStock_1.5.7_x64-setup.exe">
+          <Button variant={"outline"} size={"lg"}>Download Bizstock.exe App</Button>
           </Link>
         </motion.div>
       </div>

@@ -1,12 +1,21 @@
-import React from 'react';
-import NotFound from "@/app/not-found";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { Features } from "@/components/Features";
+import { Stats } from "@/components/Stats";
+import { CTA } from "@/components/CTA";
+import { Footer } from "@/components/Footer";
 
-const AboutUs = () => {
+export default function Home() {
   return (
-    <div>
-      <NotFound tag="About Us" description="The page you are looking for is under development. Thank you for your patience." />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <Stats />
+        <CTA />
+      </main>
+      <Footer />
+    </>
   );
-};
-
-export default AboutUs;
+}

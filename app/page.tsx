@@ -1,18 +1,18 @@
 'use client';
 import React from 'react';
-import {HeroSection} from "@/app/components/hero-section";
-import {FeaturesSection} from "@/app/components/features-section";
-import {PricingSection} from "@/app/components/pricing-section";
-import {SEOContentSection} from "@/app/components/seo-content-section";
-import {TestimonialsSection} from "@/app/components/testimonials-section";
-import {FaqSection} from "@/app/components/faq-section";
-import {CtaSection} from "@/app/components/cta-section";
-import {SiteFooter} from "@/app/components/site-footer";
+import {HeroSection} from "@/components/hero-section";
+import {FeaturesSection} from "@/components/features-section";
+import {PricingSection} from "@/components/pricing-section";
+import {SEOContentSection} from "@/components/seo-content-section";
+import {TestimonialsSection} from "@/components/testimonials-section";
+import {FaqSection} from "@/components/faq-section";
+import {CtaSection} from "@/components/cta-section";
+import {SiteFooter} from "@/components/site-footer";
 
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-l from-blue-500/40 to-white/0">
+    <div className="bg-gradient-to-l from-slate-800/20 to-slate-200/10">
       <div className="flex max-w-[72rem] mx-auto flex-col">
         <main className="flex-1 ">
           <div

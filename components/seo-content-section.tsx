@@ -2,7 +2,7 @@
 
 import {Barcode, BarChart2, Layers, Link2, TrendingUp, Users, ReceiptText, Zap} from 'lucide-react';
 import {motion} from 'framer-motion';
-import {PolicySection} from '@/app/components/terms';
+import {PolicySection} from '@/components/terms';
 import React from 'react';
 
 export const SEOContentSection = () => {
@@ -57,13 +57,13 @@ export const SEOContentSection = () => {
       icon: Link2,
       iconColor: "text-teal-600 bg-teal-100",
       title: "Multi-Module Ecosystem",
-      description: "Everything your business needs—products, vendors, customers, expenses, invoices, reporting—all deeply connected in one streamlined system."
+      description: "Everything your business needs products, vendors, customers, expenses, invoices, reporting all deeply connected in one streamlined system."
     },
     {
       icon: BarChart2,
       iconColor: "text-red-600 bg-red-100",
       title: "Advanced Business Reports",
-      description: "Get comprehensive financial reports, export as PDF, CSV, or TXT, and gain real insights for smart decision-making with printable formats ready."
+      description: "Get comprehensive financial reports, export as PDF, CSV, or TXT, and gain real insights for smart decision making with printable formats ready."
     },
     {
       icon: TrendingUp,
@@ -75,13 +75,13 @@ export const SEOContentSection = () => {
       icon: Zap,
       iconColor: "text-indigo-600 bg-indigo-100",
       title: "Lightning Fast Experience",
-      description: "Powered by Next.js and Zustand for seamless state management. Feels like an offline app—fast, fluid, and reliable for daily use."
+      description: "Powered by Next.js and Zustand for seamless state management. Feels like an offline app fast, fluid, and reliable for daily use."
     }
   ];
   
   return (
     <motion.section
-      className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-white"
+      className="py-16 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw] bg-background/50"
       initial="hidden"
       whileInView="visible"
       viewport={{once: true, margin: "-100px"}}
@@ -89,7 +89,7 @@ export const SEOContentSection = () => {
     >
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center tracking-tighter"
+          className="text-4xl font-bold mb-12 text-center tracking-tight sm:text-5xl"
           variants={itemVariants}
         >
           Why BizStock is Built for Real Business Needs
