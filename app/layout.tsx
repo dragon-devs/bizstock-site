@@ -20,42 +20,39 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "BizStock - POS & Inventory Management for Modern Businesses",
+  title: "BizStock - Smart POS & Inventory Management",
   description:
-    "BizStock is a powerful POS and inventory management system with real-time dashboard, barcode scanning, multi-variant stock, customer ledger, expenses tracking, fully printable invoices, and exportable reports. Send invoices via WhatsApp/SMS with encrypted PDF access. 100% mobile responsive, blazing fast, built with Next.js.",
+    "BizStock is a fast, mobile-friendly POS and inventory system. Manage stock, sales, expenses, barcodes, and invoices with real-time insights and WhatsApp sharing.",
   metadataBase: new URL("https://www.bizstock.net"),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.bizstock.net",
-    title: "BizStock - POS & Inventory Management for Modern Businesses",
+    title: "BizStock - Smart POS & Inventory Management",
     description:
-      "All-in-one POS and inventory solution with stock management, sales, customer tracking, barcode scanning, ledgers, WhatsApp sharing, real-time insights and more.",
+      "All-in-one POS and inventory management solution with real-time reporting, barcode scanning, customer tracking, and WhatsApp invoice sharing.",
     siteName: "BizStock",
     images: [
       {
         url: "/bizstock-post.png",
         width: 700,
         height: 1200,
-        alt: "BizStock - POS & Inventory Management Details",
+        alt: "BizStock - POS & Inventory Management",
       },
-      
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BizStock - POS & Inventory Management for Modern Businesses",
+    title: "BizStock - Smart POS & Inventory Management",
     description:
-      "POS and inventory management system with sales tracking, barcode scanning, printable receipts, WhatsApp invoice sharing, and mobile-ready dashboard.",
-    images: [
-      "/bizstock-post.png",
-    ],
+      "Modern POS and inventory system with barcode scanning, receipts, WhatsApp invoices, and real-time dashboard.",
+    images: ["/bizstock-post.png"],
     creator: "@dragondevs_", // Update if needed
   },
   icons: {
     icon: [
-      {url: "/favicon.ico", sizes: "48x48"},
-      {url: "/icon-512x512.png", sizes: "512x512"},
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-512x512.png", sizes: "512x512" },
     ],
     shortcut: "/icon-192x192.png",
     apple: "/icon-512x512.png",
@@ -82,30 +79,24 @@ export const metadata: Metadata = {
     "Customer Ledger",
     "Barcode Scanner",
     "Real-time Sales Tracker",
-    "Small Business Management",
+    "Small Business POS",
     "Stock Management",
     "Printable Receipts",
     "Mobile POS",
-    "Next.js POS App",
     "Product Variants",
-    "Vendor Management",
     "Expense Tracker",
     "Sales Invoices",
     "WhatsApp Invoice",
-    "SMS Invoice Link",
     "Encrypted PDF Invoice",
     "CSV Export",
     "PDF Export",
     "Mini Receipt Printer",
     "Responsive POS System",
     "BizStock",
-    "dragondevs",
-    "bizstock",
+    "DragonDevs",
   ],
-  // Optional: Uncomment and add when ready
   // verification: {
   //   google: 'your-google-site-verification-code',
-  //   yandex: 'your-yandex-verification-code',
   // },
 };
 
