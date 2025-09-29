@@ -78,7 +78,7 @@ export const SiteHeader = () => {
             <Link href="https://app.bizstock.net/auth/signin">
               <Button
                 variant="outline"
-                className="flex items-center gap-2 md:w-auto w-9 px-2 py-1 sm:px-4 sm:py-2 bg-transparent border-0 md:border md:border-input md:bg-background"
+                className="flex items-center gap-2 md:w-auto w-9 px-2 py-1 sm:px-4 sm:py-2 bg-transparent border-0 md:border md:border-input md:bg-background shadow-none"
               >
                 <LogInIcon className="w-4 h-4" />
                 <span className="hidden sm:inline">Login</span>
