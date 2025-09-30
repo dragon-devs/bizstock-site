@@ -30,6 +30,7 @@ const clientLogos = [
 
 export const HeroSection = () => {
   const [showVideo, setShowVideo] = useState(false);
+  const [showClose, setShowClose] = useState(false);
 
   return (
     <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-20 px-4">
@@ -54,7 +55,7 @@ export const HeroSection = () => {
           >
             Manage stock with variants, scan or generate barcodes, track expenses
             and customer ledgers, send invoices via WhatsApp & SMS, print mini
-            receipts, and get real-time reports — all from a blazing-fast,
+            receipts, and get real-time reports all from a blazing-fast,
             mobile-first dashboard.
           </motion.p>
 
@@ -88,10 +89,8 @@ export const HeroSection = () => {
           animate="visible"
           transition={{ delay: 0.4 }}
           className="relative mt-12 sm:mt-16 max-w-5xl mx-auto"
+
         >
-
-
-
           {/* Video Reveal */}
           <AnimatePresence>
             {showVideo && (
@@ -105,6 +104,8 @@ export const HeroSection = () => {
                   className="aspect-video w-full rounded-xl overflow-hidden shadow-xl relative"
                 >
                   <iframe
+                    onMouseEnter={() => setShowClose(true)}
+                    onMouseLeave={() => setShowClose(false)}
                     className="w-full h-full"
                     src="https://www.youtube.com/embed/0y_8KbbN0j0?autoplay=1"
                     title="BizStock POS & Inventory Introduction"
@@ -113,14 +114,14 @@ export const HeroSection = () => {
                   ></iframe>
 
 
-
                   {/* Close button */}
-                  <button
+                  {showClose && (<button
+                    onMouseEnter={() => setShowClose(true)}
                     onClick={() => setShowVideo(false)}
-                    className="text-white absolute top-3 text-sm right-20 flex-col items-center justify-center hover:bg-transparent md:flex hidden"
+                    className="text-white absolute top-[13px] text-sm right-20 flex-col items-center justify-center hover:bg-transparent md:flex hidden hover:gap-1"
                   >
-                    <XIcon className={"mb-[3px]"} />  Close
-                  </button>
+                    <XIcon /> <span className={"text-white/80 hover:text-white font-bold hover:bg-zinc-900 py-0.5 px-2 rounded-[3px] text-[14px]"}>Close</span>
+                  </button>)}
 
                 </motion.div>
               </div>
