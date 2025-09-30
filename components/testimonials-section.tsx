@@ -57,7 +57,7 @@ export const TestimonialsSection = () => {
       company: "Online Marketplace Solutions"
     },
     {
-      quote: "With BizStock's region based customer grouping, we can now filter ledgers and invoices by location—so helpful!",
+      quote: "With BizStock's region based customer grouping, we can now filter ledgers and invoices by location so helpful!",
       name: "Jessica Lee",
       company: "Smart Logistics Co."
     },
@@ -72,7 +72,7 @@ export const TestimonialsSection = () => {
       company: "Elegant Decor Ltd."
     },
     {
-      quote: "All our modules—inventory, customers, vendors, expenses—are connected. It's the only tool we need to run the business.",
+      quote: "All our modules inventory, customers, vendors, expenses are connected. It's the only tool we need to run the business.",
       name: "Alex Carter",
       company: "Green Earth Enterprises"
     },

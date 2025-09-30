@@ -58,7 +58,7 @@ export const SiteFooter = () => {
                 className="h-10 w-10 dark:invert transition-all"
               />
               <span className="text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                BizStock
+                bizstock
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">

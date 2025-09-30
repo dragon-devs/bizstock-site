@@ -54,7 +54,7 @@ export const SiteHeader = () => {
               height={100}
             />
             <span className="text-base tracking-tighter font-bold text-foreground bg-clip-text hover:text-primary">
-              BizStock
+              bizstock
             </span>
           </Link>
 
