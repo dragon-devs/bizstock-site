@@ -13,25 +13,25 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
       name: 'Facebook',
       icon: <FaFacebook className="w-5 h-5" />,
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     },
     {
       name: 'X',
       icon: <FaXTwitter className="w-5 h-5" />,
       href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     },
     {
       name: 'LinkedIn',
       icon: <FaLinkedin className="w-5 h-5" />,
       href: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     },
     {
       name: 'WhatsApp',
       icon: <FaWhatsapp className="w-5 h-5" />,
       href: `https://wa.me/?text=${encodeURIComponent(url)}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     },
     // {
     //   name: 'Pinterest',
@@ -43,19 +43,19 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
     //   name: 'Reddit',
     //   icon: <Share2 className="w-5 h-5" />,
     //   href: `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-    // color: 'bg-background/80 hover:bg-background'
+    // color: 'bg-background/80 hover:bg-background border border-border'
     // },
     {
       name: 'Telegram',
       icon: <FaTelegram className="w-5 h-5" />,
       href: `https://t.me/share/url?url=${encodeURIComponent(url)}}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     },
     {
       name: 'Email',
       icon: <Mail className="w-5 h-5" />,
       href: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Check out this link: ' + url)}`,
-      color: 'bg-background/80 hover:bg-background'
+      color: 'bg-background/80 hover:bg-background border border-border'
     }
   ];
   const copyToClipboard = async () => {
@@ -74,7 +74,7 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
         {/* Main share button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`p-3 rounded-full bg-background text-foreground shadow-lg transform transition-transform duration-200 ${
+          className={`p-3 rounded-full bg-background text-foreground shadow-lg transform transition-transform duration-200 border border-border ${
             isOpen ? 'rotate-45' : 'hover:scale-110'
           }`}
         >
@@ -109,7 +109,7 @@ const SocialShareWidget = ({ url = 'https://www.bizstock.net', title = 'Check ou
             {/* Copy link button */}
             <button
               onClick={copyToClipboard}
-              className="p-3 rounded-full bg-background/80 hover:bg-background text-foreground shadow-lg transform transition-all hover:scale-110"
+              className="p-3 rounded-full bg-background/80 hover:bg-background text-foreground shadow-lg transform transition-all hover:scale-110 border border-border"
             >
               {copied ? (
                 <span className="text-sm font-medium"><Check className="w-5 h-5" /></span>

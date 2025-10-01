@@ -175,16 +175,18 @@ export const FaqSection: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <Icon className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-base sm:text-lg font-medium text-foreground group-hover:text-primary transition-colors">
-                      {faq.question}
-                    </span>
+                  {faq.question}
+                </span>
                   </div>
 
                   {/* Plus / Minus Icon */}
+                  <span className="flex items-center justify-center w-5 h-5">
                   {isOpen ? (
-                    <Minus className="w-5 h-5 text-primary transition-transform duration-300" />
-                  ) : (
-                    <Plus className="w-5 h-5 text-primary transition-transform duration-300" />
-                  )}
+                  <Minus className="w-5 h-5 text-primary" />
+                    ) : (
+                  <Plus className="w-5 h-5 text-primary" />
+                    )}
+                </span>
                 </button>
 
                 {/* Answer Section */}
