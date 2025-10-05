@@ -93,7 +93,7 @@ export const metadata: Metadata = {
 		"Mini Receipt Printer",
 		"Responsive POS System",
 		"BizStock",
-		"DragonDevs",
+		"dragondevs",
 	],
 };
 

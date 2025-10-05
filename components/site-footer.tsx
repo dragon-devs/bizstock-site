@@ -122,17 +122,17 @@ export const SiteFooter = () => {
             >
               <span>Developed by</span>
               <Link
-                href="https://dragon-devs.vercel.app"
+                href="https://dragondevs.co"
                 className="flex items-center hover:text-primary transition-colors"
               >
                 <Image
-                  src="/dragondevs-logo.png"
-                  alt="DragonDevs Logo"
+                  src="/new-dragondevs-logo.png"
+                  alt="dragondevs Logo"
                   width={20}
                   height={20}
                   className="w-5 h-5 rounded-full mr-1 shadow-sm"
                 />
-                <span className="font-semibold">DragonDevs</span>
+                <span className="font-semibold">dragondevs</span>
               </Link>
             </motion.div>
 
